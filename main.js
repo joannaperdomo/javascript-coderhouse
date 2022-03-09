@@ -1,8 +1,9 @@
 // Variables usuario
-
-let curso = prompt("¿Cuál idioma quieres estudiar? Escribe \n1 para japonés \n2 para chino \n3 para coreano");
+let nombre = prompt('¿Cuál es tu nombre?');
+let apellido = prompt('¿Cuál es tu apellido?');
+let edad = prompt('¿Cuál es tu edad?');
+let curso = parseInt(prompt("¿Cuál idioma quieres estudiar? Escribe \n1 para japonés \n2 para chino \n3 para coreano"));
 let meses = parseInt(prompt("¿Por cuántos meses quieres estudiar?"));
-
 
 // Variables cursos de idiomas
 const japones = {
@@ -21,38 +22,50 @@ const coreano = {
     costoMensual: 2500
 }
 
-// Función para escoger el curso
+// Array con inscritos
 
-function inscripcion (idioma, tiempo) {
+const alumnosJapones = [];
+const alumnosChino = [];
+const alumnos = [];
 
-    if (idioma == "1" || "2" || "3")
-    {
-        switch (idioma){
-            case "1":
-                idioma = japones;
-                break;
-            case "2":
-                idioma = chino;
-                break;
-            case "3":
-                idioma = coreano;
-                break;
-            default:
-                alert("Opción no válida. Inténtalo de nuevo")             
-        }
+// Constructor de alumnos inscritos
 
-        costoTotal = idioma.costoMensual * tiempo;
-        horario = idioma.horario;
-        
-       return alert(`Tu curso de ${idioma.idioma} tendrá un costo de $${costoTotal}. Estás inscrito en este horario: ${horario}`)
-
-    } else {
-        alert("Ingresaste un número incorrecto. Intenta de nuevo.")
-    }
-    
+function Alumno(nombre, apellido, edad, idioma, tiempo){
+    this.nombre = nombre;
+    this.apellido = apellido;
+    this.edad = parseInt(edad);
+    this.idioma = idioma;
+    this.tiempo = tiempo;
 }
 
-inscripcion(curso,meses);
+
+// Función para inscribirse en el curso
+
+function inscripcion (nombre, apellido, edad, idioma, tiempo) {
+    switch (idioma){
+        case 1:
+            idioma = japones;
+            alumnosJapones.push(new Alumno(nombre, apellido, edad, idioma,tiempo))
+            break;
+        case 2:
+            idioma = chino;
+            alumnosChino.push(new Alumno(nombre, apellido, edad, idioma,tiempo))
+            break;
+        case 3:
+            idioma = coreano;
+            alumnosCoreano.push(new Alumno(nombre, apellido, edad, idioma,tiempo))
+            break;
+        default:
+            alert("Opción no válida. Inténtalo de nuevo") 
+    }
+
+    costoTotal = idioma.costoMensual * tiempo;
+    horario = idioma.horario;
+    
+   return alert(`¡Felicidades, ${nombre} ${apellido}! Ya eres parte de nuestra escuela. Tu curso de ${idioma.idioma} tendrá un costo de $${costoTotal}. Estás inscrito en este horario: ${horario}`)
+}
+
+inscripcion(nombre, apellido, edad, curso,meses);
 
 
 
