@@ -1,9 +1,10 @@
 // Variables usuario
-let nombre = prompt('¿Cuál es tu nombre?');
-let apellido = prompt('¿Cuál es tu apellido?');
-let edad = prompt('¿Cuál es tu edad?');
-let curso = parseInt(prompt("¿Cuál idioma quieres estudiar? Escribe \n1 para japonés \n2 para chino \n3 para coreano"));
-let meses = parseInt(prompt("¿Por cuántos meses quieres estudiar?"));
+    let nombre = prompt('¿Cuál es tu nombre?');
+    let apellido = prompt('¿Cuál es tu apellido?');
+    let edad = prompt('¿Cuál es tu edad?');
+    let curso = parseInt(prompt("¿Cuál idioma quieres estudiar? Escribe \n1 para japonés \n2 para chino \n3 para coreano"));
+    let meses = parseInt(prompt("¿Por cuántos meses quieres estudiar?"));
+
 
 // Variables cursos de idiomas
 const japones = {
@@ -26,7 +27,7 @@ const coreano = {
 
 const alumnosJapones = [];
 const alumnosChino = [];
-const alumnos = [];
+const alumnosCoreano = [];
 
 // Constructor de alumnos inscritos
 
@@ -65,7 +66,7 @@ function inscripcion (nombre, apellido, edad, idioma, tiempo) {
    return alert(`¡Felicidades, ${nombre} ${apellido}! Ya eres parte de nuestra escuela. Tu curso de ${idioma.idioma} tendrá un costo de $${costoTotal}. Estás inscrito en este horario: ${horario}`)
 }
 
-inscripcion(nombre, apellido, edad, curso,meses);
+inscripcion(nombre, apellido, edad, curso, meses);
 
 
 
