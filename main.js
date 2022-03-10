@@ -67,6 +67,3 @@ function inscripcion (nombre, apellido, edad, idioma, tiempo) {
 }
 
 inscripcion(nombre, apellido, edad, curso, meses);
-
-
-
