@@ -1,7 +1,43 @@
 body {
-    background-color: #880D1E;
-};
+    background-color: #DCE0D9;
+}
 
-.tarjeta {
-    background-color: green;
+
+.sidebar{
+    background-color: #6B0F1A;
+}
+
+
+/* NAVBAR */
+
+.barra{
+    background: rgba(255,255,255,0.3);
+    text-transform: uppercase;
+}
+
+/* SECTIONS */
+
+.section{
+    height: 100vh;
+}
+
+.section2{
+    background-color: #6B0F1A;
+}
+
+.section3{
+    background-color: #31081F;
+}
+
+/* HORARIO */
+
+.salon{
+    background-color: white;
+    text-align: center;
+    padding: 5px;
+    width: ;
+}
+
+.modalidad{
+    background-color: #6B0F1A;
 }
