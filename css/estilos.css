@@ -34,7 +34,6 @@ body {
 
 .wrapper{
     justify-content: center;
-    align-content: center;
     display: flex;
     gap: 10px;
     flex-flow: wrap;
