@@ -19,8 +19,12 @@ body {
     margin-top: 100px;
 }
 
-.section{
-    height: 100vh;
+.section1{
+    height: 95vh;
+    background-image: url(../img/fondo.png), url(../img/sol.png);
+    background-position: bottom, right;
+    background-repeat: no-repeat;
+    background-size: contain, contain;
 }
 
 .section2{
@@ -31,6 +35,7 @@ body {
 
 .section3{
     background-color: #051014;
+    height: 100vh;
 }
 
 /* HORARIO */
