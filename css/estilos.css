@@ -1,10 +1,5 @@
 body {
-    background-color: #DCE0D9;
-}
-
-
-.sidebar{
-    background-color: #161925;
+    background-color: #BCBDC0;
 }
 
 
@@ -12,22 +7,30 @@ body {
 
 .barra{
     text-transform: uppercase;
-    background-color: #DCE0D9;
+    background-color: #BCBDC0;
 
 }
 
 /* SECTIONS */
+
+.titulo{
+    color: white;
+    margin-left: 100px;
+    margin-top: 100px;
+}
 
 .section{
     height: 100vh;
 }
 
 .section2{
-    background-color: #161925;
+    background-color: #721121;
+    justify-items: center;
+    height: 60vh;
 }
 
 .section3{
-    background-color: #406E8E;
+    background-color: #051014;
 }
 
 /* HORARIO */
@@ -53,8 +56,24 @@ body {
 }
 
 .modalidad{
-    background-color: #406E8E;
+    background-color: #051014;
     border-radius: 15px 15px 0px 0px;
 
 }
 
+/* Barra */
+.sidebar{
+    background-color: #721121;
+    text-transform: uppercase;
+    font-weight: bolder;
+    display: flex;
+    justify-content: center;
+}
+
+.socialmedia{
+    width: fit-content;
+    color: #E6E6E6;
+    transform: rotate(90deg);
+    position: fixed;
+    margin-top: 30vh;
+};
