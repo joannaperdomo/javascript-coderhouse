@@ -1,4 +1,9 @@
+
+
+
 // Variables usuario
+
+
 /*     let nombre = prompt('¿Cuál es tu nombre?');
     let apellido = prompt('¿Cuál es tu apellido?');
     let edad = prompt('¿Cuál es tu edad?');
@@ -12,7 +17,8 @@ const todosLosAlumnos = [];
 
 // Constructor de salones
 
-function Clases(salon,horario,costoMensual, codigo){
+function Clases(nivel, salon,horario,costoMensual, codigo){
+    this.nivel = nivel;
     this.salon = salon;
     this.horario = horario;
     this.costoMensual = costoMensual;
@@ -21,22 +27,30 @@ function Clases(salon,horario,costoMensual, codigo){
 };
 
 // Variables cursos
-const todosLosSalones = [
-    let japo = new Clases("Tokyo", "Sábados de 8 a 12m", 1500),
 
+const cursos = [
+    clase110010 = new Clases("Principiante", "Tokyo", "Lunes y Miércoles 4:00 pm - 6:00 pm", 1500,110010),
+    clase100101 = new Clases("Principiante", "Kyoto", "Lunes a Viernes 8:00 am - 10:00 am", 1900,110011),
+    clase100102 = new Clases("Principiante", "Hokkaido", "Sábados de 8:00 am - 12:00 m", 1300,110012),
+    clase100103 = new Clases("Intermedio", "Hokkaido", "Lunes y Miércoles 4:00 pm - 6:00 pm", 1500,110013),
+    clase100104 = new Clases("Intermedio", "Tokyo", "Lunes a Viernes 8:00 am - 10:00 am", 1900,110014),
+    clase100105 = new Clases("Intermedio", "Kyoto", "Sábados de 8:00 am - 12:00 m", 1300,110015),
+    clase100106 = new Clases("Avanzado", "Kyoto", "Lunes y Miércoles 4:00 pm - 6:00 pm", 1500,110016),
+    clase100107 = new Clases("Avanzado", "Hokkaido", "Lunes a Viernes 8:00 am - 10:00 am", 1900,110017),
+    clase100108 = new Clases("Avanzado", "Tokyo", "Sábados de 8:00 am - 12:00 m", 1300,1100108),
 
-]
+];
+
 
 
 
 // Constructor de alumnos inscritos
 
-function Alumno(nombre, apellido, edad, idioma, tiempo){
+function Alumno(nombre, apellido, edad, curso){
     this.nombre = nombre;
     this.apellido = apellido;
     this.edad = parseInt(edad);
-    this.idioma = idioma;
-    this.tiempo = tiempo;
+    this.curso = curso;
     this.numeroEstudiante = 0; 
     if(todosLosAlumnos.length == 0) {
         this.numeroEstudiante = 100;
@@ -48,32 +62,11 @@ function Alumno(nombre, apellido, edad, idioma, tiempo){
 
 // Función para inscribirse en el curso
 
-function inscripcion (nombre, apellido, edad, idioma, tiempo,numeroEstudiante) {
-    switch (idioma){
-        case 1:
-            idioma = japones;
-            let nuevoalumno = new Alumno(nombre, apellido, edad, idioma,tiempo)
-            japones.alumnos.push(nuevoalumno)
-            todosLosAlumnos.push(numeroEstudiante)
-            break;
-        case 2:
-            idioma = chino;
-            alumnosChino.push(new Alumno(nombre, apellido, edad, idioma,tiempo))
-            todosLosAlumnos.push()
-            break;
-        case 3:
-            idioma = coreano;
-            alumnosCoreano.push(new Alumno(nombre, apellido, edad, idioma,tiempo))
-            todosLosAlumnos.push()
-            break;
-        default:
-            alert("Opción no válida. Inténtalo de nuevo") 
-    }
-
-    costoTotal = idioma.costoMensual * tiempo;
-    horario = idioma.horario;
+function inscripcion (nombre, apellido, edad, clase) {
+    curso = cursos.find(curso => curso.codigo === clase);
+    todosLosAlumnos.push(new Alumno(nombre, apellido, edad, curso));
     
-   return alert(`¡Felicidades, ${nombre} ${apellido}! Ya eres parte de nuestra escuela. Tu curso de ${idioma.idioma} tendrá un costo de $${costoTotal}. Estás inscrito en este horario: ${horario}`)
+   return alert(`¡Felicidades, ${nombre} ${apellido}! Ya eres parte de nuestra escuela. Tu curso de japonés ${curso.nivel} tendrá un costo de $${curso.costoMensual}. Estás inscrito en este horario: ${curso.horario}`)
 }
 
-inscripcion(nombre, apellido, edad, curso, meses);
+inscripcion(nombre, apellido, edad, clase);
