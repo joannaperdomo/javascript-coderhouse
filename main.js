@@ -1,3 +1,5 @@
+
+
 // Constructor de salones
 
 function Clases(nivel, salon,horario,costoMensual, codigo){
@@ -22,6 +24,11 @@ const cursos = [
     clase32 = new Clases("Avanzado", "Hokkaido", "Lunes a Viernes 8:00 am - 10:00 am", 1900,32),
     clase33 = new Clases("Avanzado", "Tokyo", "Sábados de 8:00 am - 12:00 m", 1300,33),
 ];
+
+let salones = document.getElementsByClassName("salon");
+salones[0].innerHTML = `${cursos[0].horario}
+Salón ${cursos[0].salon}`
+  ; 
 
 // Variables usuario
 

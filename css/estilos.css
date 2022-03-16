@@ -25,7 +25,7 @@ body {
 .section1{
     height: 95vh;
     background-image: url(../img/fondo2.png), url(../img/fondo3.png), url(../img/sol.png);
-    background-position: 100% 100%, 0% 100%, 50% 100%;
+    background-position: 100% 100%, 0% 100%, 50% 85%;
     background-repeat: no-repeat;
     background-size: 70%,60%,40%;
     animation-name: backgroundSlideIn;
@@ -46,7 +46,7 @@ body {
 
 @keyframes backgroundSlideIn {
     from {background-position: 100% 500%, 0% 500%, 50% 500%;}
-    to {background-position: 100% 100%, 0% 100%, 50% 100%;} 
+    to {background-position: 100% 100%, 0% 100%, 50% 85%;} 
 }
 
 .section2{
@@ -88,6 +88,7 @@ body {
     font-size: 22px;
     font-weight: bolder;
     text-align: center;
+
 }
 
 .nivel{
@@ -98,8 +99,10 @@ body {
 .modalidad{
     background-color: #051014;
     border-radius: 15px 15px 0px 0px;
-    color: white ;
-
+    color: white;
+    margin-top: 10px;
+    padding: 15px;
+    text-align: center;
 }
 
 /* Barra */
