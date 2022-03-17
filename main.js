@@ -1,5 +1,3 @@
-
-
 // Constructor de salones
 
 function Clases(nivel, salon,horario,hora, costoMensual, codigo){
@@ -26,11 +24,28 @@ const cursos = [
     clase33 = new Clases("Avanzado", "Tokyo", "Sábados", "8:00 am - 12:00 m", 1300,33),
 ];
 
+// LOOP PARA AÑADIR CLASES AL HTML
+
 let salones = document.getElementsByClassName("salon");
 
 for (let i = 0; i < salones.length; i++){
     salones[i].innerHTML = `${cursos[i].horario} <br/> ${cursos[i].hora} <br/> Salón ${cursos[i].salon}`;
 }
+
+let botonNiveles = document.querySelectorAll(".boton");
+let inscripcionDiv = document.getElementById("inscripcion");
+
+
+botonNiveles.forEach(boton => {
+    boton.onclick = () => {   
+        inscripcionDiv.innerHTML = "YA WEY";
+    };
+})
+
+
+
+
+
 
 
 
@@ -73,4 +88,4 @@ function inscripcion (nombre, apellido, edad, nivel, modalidad) {
    return alert(`¡Felicidades, ${nombre} ${apellido}! Ya eres parte de nuestra escuela. Tu curso de japonés ${curso.nivel} tendrá un costo de $${curso.costoMensual}. Estás inscrito en este horario: ${curso.horario} ${curso.hora}`)
 }
 
-inscripcion(nombre, apellido, edad, nivel, modalidad);
+// inscripcion(nombre, apellido, edad, nivel, modalidad);

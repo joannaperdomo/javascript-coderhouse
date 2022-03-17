@@ -56,7 +56,10 @@ body {
 
 .section3{
     background-color: #051014;
+    color: white;
     height: 100vh;
+    padding: 0px 100px 50px 100px;
+    display: block;
 }
 
 /* HORARIO */
@@ -107,4 +110,44 @@ body {
     transform: rotate(90deg);
     position: fixed;
     margin-top: 30vh;
-};
+}
+
+/* FORMULARIO DE INSCRIPCIÓN */
+
+.formulario{
+    padding: 15px;
+}
+
+.boton-niveles{
+    font-size: 0px;
+}
+
+.boton{
+    background-color: #E6E6E6;
+    font-size: 14px;
+    border: 1px solid #8A8A93;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.boton-principiante{
+    border-radius: 10px 0px 0px 10px;
+}
+
+.boton-intermedio{
+    border-radius: 0px;
+}
+
+.boton-avanzado{
+    border-radius: 0px 10px 10px 0px;
+}
+
+.boton:hover{
+    background-color: #D5D5D8;
+}
+
+.boton:focus{
+    background-color: #721121;
+    color: #E6E6E6;
+}
+
