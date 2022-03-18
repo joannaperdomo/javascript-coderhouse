@@ -71,7 +71,7 @@ const nivelEscogido = document.getElementById("inscripcion-exitosa");
 // Funcion para enviar formulario
 formulario.addEventListener("submit", enviarFormulario);
 
-// Función enviar formulario e inscribitse en 
+// Función enviar formulario e inscribir al alumno
 
 function enviarFormulario (e){
     e.preventDefault();

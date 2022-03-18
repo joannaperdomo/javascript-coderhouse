@@ -116,13 +116,13 @@ body {
 
 .formulario{
     padding: 15px;
-    display: block;
 }
 
 
 .boton{
     background-color: #721121;
     border: 1px solid #6A101F;
+    color: white;
     padding: 15px;
 }
 
@@ -131,15 +131,14 @@ body {
     border: 1px solid #7C1325;
 }
 
-.boton:focus{
+.boton:active{
     background-color: #470B15;
     border: 1px solid #7C1325;
     box-shadow: 0 0 0 0.25rem rgb(141 22 42 / 50%);
     color: #E6E6E6;
 }
 
-.boton:active{
+.boton:checked+label {
     border: 1px solid #7C1325;
     box-shadow: 0 0 0 0.25rem rgb(141 22 42 / 50%);
 }
-
