@@ -116,38 +116,30 @@ body {
 
 .formulario{
     padding: 15px;
+    display: block;
 }
 
-.boton-niveles{
-    font-size: 0px;
-}
 
 .boton{
-    background-color: #E6E6E6;
-    font-size: 14px;
-    border: 1px solid #8A8A93;
-    border-radius: 10px;
+    background-color: #721121;
+    border: 1px solid #6A101F;
     padding: 15px;
 }
 
-.boton-principiante{
-    border-radius: 10px 0px 0px 10px;
-}
-
-.boton-intermedio{
-    border-radius: 0px;
-}
-
-.boton-avanzado{
-    border-radius: 0px 10px 10px 0px;
-}
-
 .boton:hover{
-    background-color: #D5D5D8;
+    background-color: #8D162A;
+    border: 1px solid #7C1325;
 }
 
 .boton:focus{
-    background-color: #721121;
+    background-color: #470B15;
+    border: 1px solid #7C1325;
+    box-shadow: 0 0 0 0.25rem rgb(141 22 42 / 50%);
     color: #E6E6E6;
+}
+
+.boton:active{
+    border: 1px solid #7C1325;
+    box-shadow: 0 0 0 0.25rem rgb(141 22 42 / 50%);
 }
 

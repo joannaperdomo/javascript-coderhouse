@@ -26,28 +26,11 @@ const cursos = [
 
 // LOOP PARA AÑADIR CLASES AL HTML
 
-let salones = document.getElementsByClassName("salon");
+const salones = document.getElementsByClassName("salon");
 
 for (let i = 0; i < salones.length; i++){
     salones[i].innerHTML = `${cursos[i].horario} <br/> ${cursos[i].hora} <br/> Salón ${cursos[i].salon}`;
 }
-
-let botonNiveles = document.querySelectorAll(".boton");
-let inscripcionDiv = document.getElementById("inscripcion");
-
-
-botonNiveles.forEach(boton => {
-    boton.onclick = () => {   
-        inscripcionDiv.innerHTML = "YA WEY";
-    };
-})
-
-
-
-
-
-
-
 
 // Variables usuario
 
@@ -57,17 +40,17 @@ let edad = prompt('¿Cuál es tu edad?');
 let nivel = parseInt(prompt("¿Qué nivel vas a cursar? Escribe \n 1 para Principante \n 2 para Intermedio \n 3 para avanzados")); 
 let modalidad = prompt("¿Cuál horario quieres cursar? Escribe \n 1 para Semanales \n 2 para intensivos \n 3 para sabatinos");
  */
+
 // Array con alumnos inscritos
 
 const todosLosAlumnos = [];
 
-
 // Constructor de alumnos inscritos
 
-function Alumno(nombre, apellido, edad, curso){
+function Alumno(nombre, apellido, email, curso){
     this.nombre = nombre;
     this.apellido = apellido;
-    this.edad = parseInt(edad);
+    this.email = email;
     this.curso = curso;
     this.numeroEstudiante = 0; 
     if(todosLosAlumnos.length == 0) {
@@ -77,15 +60,25 @@ function Alumno(nombre, apellido, edad, curso){
     }
 };
 
+// Data de usuario (del formulario)
+const formulario = document.getElementById("formulario");
+const nombreU = document.getElementById("nombre");
+const apellidoU = document.getElementById("apellido");
+const emailU = document.getElementById("email");
+// Elementos para inscripción exitosa 
+const nivelEscogido = document.getElementById("inscripcion-exitosa");
 
-// Función para inscribirse en el curso
+// Funcion para enviar formulario
+formulario.addEventListener("submit", enviarFormulario);
 
-function inscripcion (nombre, apellido, edad, nivel, modalidad) {
-    let clase = parseInt("" + nivel + modalidad);
-    curso = cursos.find(curso => curso.codigo === clase);
-    todosLosAlumnos.push(new Alumno(nombre, apellido, edad, curso));
-    
-   return alert(`¡Felicidades, ${nombre} ${apellido}! Ya eres parte de nuestra escuela. Tu curso de japonés ${curso.nivel} tendrá un costo de $${curso.costoMensual}. Estás inscrito en este horario: ${curso.horario} ${curso.hora}`)
+// Función enviar formulario e inscribitse en 
+
+function enviarFormulario (e){
+    e.preventDefault();
+    //crear objeto
+    let curso = cursos[0];
+    // crear y añadir alumno al array de estudiantes
+    todosLosAlumnos.push(new Alumno(nombreU.value, apellidoU.value, emailU.value, curso));
+    // Mensaje de inscripción exitosa
+    nivelEscogido.innerText = `¡Felicidades, ${nombreU.value} ${apellidoU.value}! Ya eres parte de nuestra escuela. Tu curso de japonés ${curso.nivel} tendrá un costo de $${curso.costoMensual}. Estás inscrito en este horario: ${curso.horario} ${curso.hora}`;
 }
-
-// inscripcion(nombre, apellido, edad, nivel, modalidad);

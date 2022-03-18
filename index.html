@@ -83,24 +83,27 @@
                 <section class="row section section3 g-0">
                     <div class="maintext">
                         <h2 class="titulo">¡Inscríbete!</h2>
-                        <form action="" class="formulario">
+                        <form id="formulario" action="" class="formulario">
                           <label for="nombre">Nombre: </label>
                           <input type="text" id="nombre" name="nombre"><br>
                           <label for="apellido">Apellido: </label>
                           <input type="text" id="apellido" name="apellido"><br>
                           <label for="email">Correo electrónico:  </label>
                           <input type="email" id="email" name="email"><br>
-                          <input type="submit" value="Submit">
+                          <div class="btn-group" role="group" aria-label="Botones para escoger el nivel">
+                            <button type="button" class="boton btn btn-primary" id="boton-principiante">Principiante</button>
+                            <button type="button" class="boton btn btn-primary" id="boton-intermedio">Intermedio</button>
+                            <button type="button" class="boton btn btn-primary" id="boton-avanzado">Avanzado</button>
+                          </div><br>
+                          <div class="btn-group" role="group" aria-label="Botones para escoger el nivel">
+                            <button type="button" class="boton btn btn-primary" id="boton-Semanal">Semanal</button>
+                            <button type="button" class="boton btn btn-primary" id="botonIntensivo">Intensivo</button>
+                            <button type="button" class="boton btn btn-primary" id="boton-Sabatino">Sabatino</button>
+                          </div><br>
+                          <input type="submit" class="btn btn-light" value="Submit">
                         </form>
                     </div>
-                    <div class="boton-niveles">
-                      <button class="boton boton-principiante">Principiante</button>
-                      <button class="boton boton-intermedio">Intermedio</button>
-                      <button class="boton boton-avanzado">Avanzado</button>
-                    </div>
-                    <div id="inscripcion">
-
-                    </div>
+                    <div id="inscripcion-exitosa"></div>
                 </section>
             </div>
         </div>
