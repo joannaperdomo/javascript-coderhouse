@@ -131,7 +131,7 @@ body {
     border: 1px solid #7C1325;
 }
 
-.boton:active{
+.boton:active, .boton:focus{
     background-color: #470B15;
     border: 1px solid #7C1325;
     box-shadow: 0 0 0 0.25rem rgb(141 22 42 / 50%);
@@ -139,6 +139,7 @@ body {
 }
 
 .boton:checked+label {
-    border: 1px solid #7C1325;
+    border: 1px solid #470B15;
+    background-color: #470B15;
     box-shadow: 0 0 0 0.25rem rgb(141 22 42 / 50%);
 }
