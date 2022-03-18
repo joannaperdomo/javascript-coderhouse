@@ -37,62 +37,83 @@
                 </nav>
                 <section class="row section section1 g-0">
                   <h2 class="titulo">Cursos de Japonés en línea</h2>
+                 
+                  <img id="fondoRojo" src="img/fondo.png" alt=""> 
                 </section>
                 <section class="row section section2 g-0">
                   <h2 class="titulo">Horarios disponibles</h2>
                   <div class="wrapper">
                     <div class="niveles">
-                      <div class="salon">
-                        Nivel principiante
+                      <div class="modalidad">
+                        Semanales
                       </div>
-                      <div class="salon">
-                        Nivel intermedio
+                      <div class="modalidad">
+                        Intensivo
                       </div>
-                      <div class="salon">
-                        Nivel avanzado
+                      <div class="modalidad">
+                        Sabatinos
                       </div>
                     </div>
                     <div class="semanales">
-                      <div class="salon modalidad">
-                        Semanales
+                      <div class="modalidad">
+                        Nivel Principiante
                       </div>
-                      <div class="salon">
-                        <p>
-                          Lunes y miércoles<br>
-                          7:00 pm - 9:00 pm<br>
-                          6 semanas
-                        </p>
-                      </div>
+                      <div class="salon"></div>
+                      <div class="salon"></div>
+                      <div class="salon"></div>
                     </div>
                     <div class="sabatinos">
-                      <div class="salon modalidad">
-                        Semanales
+                      <div class="modalidad">
+                        Nivel Intermedio
                       </div>
-                      <div class="salon">
-                        <p>
-                          Lunes y miércoles<br>
-                          7:00 pm - 9:00 pm<br>
-                          6 semanas
-                        </p>
-                      </div>
+                      <div class="salon"></div>
+                      <div class="salon"></div>
+                      <div class="salon"></div>
                     </div>
                     <div class="intensivos">
-                      <div class="salon modalidad">
-                        Semanales
+                      <div class="modalidad">
+                        Nivel Intermedio
                       </div>
-                      <div class="salon">
-                        <p>
-                          Lunes y miércoles<br>
-                          7:00 pm - 9:00 pm<br>
-                          6 semanas
-                        </p>
-                      </div>
+                      <div class="salon"></div>
+                      <div class="salon"></div>
+                      <div class="salon"></div>
+                    </div>
                   </div>
                 </section>
                 <section class="row section section3 g-0">
                     <div class="maintext">
                         <h2 class="titulo">¡Inscríbete!</h2>
+                        <form id="formulario" action="" class="formulario">
+                          <label for="nombre">Nombre: </label>
+                          <input type="text" id="nombre" name="nombre"><br>
+                          <label for="apellido">Apellido: </label>
+                          <input type="text" id="apellido" name="apellido"><br>
+                          <label for="email">Correo electrónico:  </label>
+                          <input type="email" id="email" name="email"><br>
+                          <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                            <input type="radio" class="boton btn-check" name="hola" id="btn-principiante">
+                            <label class="boton btn btn-outline-primary" for="btn-principiante">Principiante</label>
+                          
+                            <input type="radio" class="boton btn-check" name="hola" id="btn-intermedio">
+                            <label class="boton btn btn-outline-primary" for="btn-intermedio">Intermedio</label>
+                          
+                            <input type="radio" class="boton btn-check" name="hola" id="btn-avanzado">
+                            <label class="boton btn btn-outline-primary" for="btn-avanzado">Avanzado</label>
+                          </div><br>
+                          <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                            <input type="radio" class="boton btn-check" name="btnradio" id="btn-semanal">
+                            <label class="boton btn btn-outline-primary" for="btn-semanal">Semanal</label>
+                          
+                            <input type="radio" class="boton btn-check" name="btnradio" id="btn-intensivo">
+                            <label class="boton btn btn-outline-primary" for="btn-intensivo">Intensivo</label>
+                          
+                            <input type="radio" class="boton btn-check" name="btnradio" id="btn-sabatino">
+                            <label class="boton btn btn-outline-primary" for="btn-sabatino">Sabatino</label>
+                          </div><br>
+                          <input type="submit" class="btn btn-light" value="Submit">
+                        </form>
                     </div>
+                    <div id="inscripcion-exitosa"></div>
                 </section>
             </div>
         </div>

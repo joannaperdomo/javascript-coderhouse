@@ -8,6 +8,7 @@ body {
 .barra{
     text-transform: uppercase;
     background-color: #BCBDC0;
+    font-weight: bolder;
 
 }
 
@@ -15,27 +16,50 @@ body {
 
 .titulo{
     color: white;
-    margin-left: 100px;
+    padding-left: 100px;
     margin-top: 100px;
+    font-size: 42px;
 }
+
 
 .section1{
     height: 95vh;
-    background-image: url(../img/fondo.png), url(../img/sol.png);
-    background-position: bottom, right;
+    background-image: url(../img/fondo2.png), url(../img/fondo3.png), url(../img/sol.png);
+    background-position: 100% 100%, 0% 100%, 50% 85%;
     background-repeat: no-repeat;
-    background-size: contain, contain;
+    background-size: 70%,60%,40%;
+    animation-name: backgroundSlideIn;
+    animation-duration: 2s;
+}
+
+#fondoRojo{
+    animation-duration: 1s;
+    animation-name: slidein;
+}
+
+/* ANIMACIONES */
+
+@keyframes slidein {
+    from {margin-top: 50vh}
+    to{margin-top: 0;}
+}
+
+@keyframes backgroundSlideIn {
+    from {background-position: 100% 500%, 0% 500%, 50% 500%;}
+    to {background-position: 100% 100%, 0% 100%, 50% 85%;} 
 }
 
 .section2{
     background-color: #721121;
-    justify-items: center;
-    height: 60vh;
+    padding: 100px;
 }
 
 .section3{
     background-color: #051014;
+    color: white;
     height: 100vh;
+    padding: 0px 100px 50px 100px;
+    display: block;
 }
 
 /* HORARIO */
@@ -47,10 +71,6 @@ body {
     flex-flow: wrap;
 }
 
-.niveles{
-    margin-right: 10px;
-}
-
 .salon{
     background-color: white;
     text-align: center;
@@ -60,10 +80,19 @@ body {
     width: 250px;
 }
 
-.modalidad{
+.modalidad, .nivel{
+    text-transform: uppercase;
     background-color: #051014;
     border-radius: 15px 15px 0px 0px;
+    color: white;
+    margin-top: 10px;
+    padding: 15px;
+    text-align: center;
+}
 
+.nivel{
+    border-radius: 15px 0px 0px 15px;
+    margin-bottom: 60px;
 }
 
 /* Barra */
@@ -81,4 +110,35 @@ body {
     transform: rotate(90deg);
     position: fixed;
     margin-top: 30vh;
-};
+}
+
+/* FORMULARIO DE INSCRIPCIÓN */
+
+.formulario{
+    padding: 15px;
+}
+
+
+.boton{
+    background-color: #721121;
+    border: 1px solid #6A101F;
+    color: white;
+    padding: 15px;
+}
+
+.boton:hover{
+    background-color: #8D162A;
+    border: 1px solid #7C1325;
+}
+
+.boton:active{
+    background-color: #470B15;
+    border: 1px solid #7C1325;
+    box-shadow: 0 0 0 0.25rem rgb(141 22 42 / 50%);
+    color: #E6E6E6;
+}
+
+.boton:checked+label {
+    border: 1px solid #7C1325;
+    box-shadow: 0 0 0 0.25rem rgb(141 22 42 / 50%);
+}
