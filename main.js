@@ -57,18 +57,31 @@ const formulario = document.getElementById("formulario");
 const nombreU = document.getElementById("nombre");
 const apellidoU = document.getElementById("apellido");
 const emailU = document.getElementById("email");
+let modalidadU = "";
+let nivelU = "";
 
 // Data de los radio buttons
-let botonesNiveles = document.querySelectorAll(".radio");
-let botonesModalidad = document.querySelectorAll(".radio2");
+let botonSeleccionado = document.querySelectorAll(".radio2");
 
-botonesNiveles.addEventListener('change', enviarData);
-botonesModalidad.addEventListener('change', enviarData);
+botonSeleccionado[0].addEventListener('change', enviarData);
+botonSeleccionado[1].addEventListener('change', enviarData);
+botonSeleccionado[2].addEventListener('change', enviarData);
+botonSeleccionado[3].addEventListener('change', enviarData);
+botonSeleccionado[4].addEventListener('change', enviarData);
+botonSeleccionado[5].addEventListener('change', enviarData);
 
 
 function enviarData (e){
-    console.log("holi");
-}
+    let opcion = e.target.name;
+    switch (opcion) {
+        case 'escoger-modalidad':
+            modalidadU = e.target.nextElementSibling.innerText;
+            break;
+        case 'escoger-nivel':
+            nivelU = e.target.nextElementSibling.innerText;
+    }
+ };
+
 
 // Elementos para inscripción exitosa 
 const inscripcionExitosa = document.getElementById("inscripcion-exitosa");
@@ -76,12 +89,13 @@ const inscripcionExitosa = document.getElementById("inscripcion-exitosa");
 // Funcion para enviar formulario
 formulario.addEventListener("submit", enviarFormulario);
 
+
 // Función enviar formulario e inscribir al alumno
 
 function enviarFormulario (e){
     e.preventDefault();
     //crear objeto
-    let curso = cursos[0];
+    let curso = cursos.find((el) => el.nivel == nivelU && el.modalidad == modalidadU);
     // crear y añadir alumno al array de estudiantes
     todosLosAlumnos.push(new Alumno(nombreU.value, apellidoU.value, emailU.value, curso));
     // Mensaje de inscripción exitosa
