@@ -70,7 +70,7 @@ botonSeleccionado[3].addEventListener('change', enviarData);
 botonSeleccionado[4].addEventListener('change', enviarData);
 botonSeleccionado[5].addEventListener('change', enviarData);
 
-
+// Funcion para enviar la data de los radio buttons
 function enviarData (e){
     let opcion = e.target.name;
     switch (opcion) {
@@ -99,5 +99,5 @@ function enviarFormulario (e){
     // crear y añadir alumno al array de estudiantes
     todosLosAlumnos.push(new Alumno(nombreU.value, apellidoU.value, emailU.value, curso));
     // Mensaje de inscripción exitosa
-    inscripcionExitosa.innerText = `¡Felicidades, ${nombreU.value} ${apellidoU.value}! Ya eres parte de nuestra escuela. Tu curso de japonés ${curso.nivel} tendrá un costo de $${curso.costoMensual}. Estás inscrito en este horario: ${curso.horario} ${curso.hora}`;
+    inscripcionExitosa.innerText = `¡Felicidades, ${nombreU.value} ${apellidoU.value}! Ya estás a un paso de formar parte de nuestra escuela. Te hemos enviado un correo electrónico para completes el pago de tu inscripción. Tu curso de japonés ${curso.nivel} tendrá un costo de $${curso.costoMensual}. Estás inscrito en este horario: ${curso.horario} ${curso.hora}`;
 }

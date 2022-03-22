@@ -59,7 +59,8 @@ body {
     color: white;
     height: 100vh;
     padding: 0px 100px 50px 100px;
-    display: block;
+    display: inline-block;
+
 }
 
 /* HORARIO */
@@ -116,6 +117,13 @@ body {
 
 .formulario{
     padding: 15px;
+    margin: 10px;
+    width: 30%;
+}
+
+.grupo-botones{
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 
@@ -128,6 +136,7 @@ body {
 
 .boton:hover{
     background-color: #8D162A;
+    color: white;
     border: 1px solid #7C1325;
 }
 
@@ -143,3 +152,9 @@ body {
     background-color: #470B15;
     box-shadow: 0 0 0 0.25rem rgb(141 22 42 / 50%);
 }
+
+#inscripcion-exitosa{
+    font-size: 18px;
+    width: 50%;
+}
+
