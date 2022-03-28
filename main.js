@@ -63,12 +63,7 @@ let nivelU = "";
 // Data de los radio buttons
 let botonSeleccionado = document.querySelectorAll(".radio2");
 
-botonSeleccionado[0].addEventListener('change', enviarData);
-botonSeleccionado[1].addEventListener('change', enviarData);
-botonSeleccionado[2].addEventListener('change', enviarData);
-botonSeleccionado[3].addEventListener('change', enviarData);
-botonSeleccionado[4].addEventListener('change', enviarData);
-botonSeleccionado[5].addEventListener('change', enviarData);
+botonSeleccionado.forEach(element =>  addEventListener('change', enviarData));
 
 // Funcion para enviar la data de los radio buttons
 function enviarData (e){
@@ -99,5 +94,8 @@ function enviarFormulario (e){
     // crear y añadir alumno al array de estudiantes
     todosLosAlumnos.push(new Alumno(nombreU.value, apellidoU.value, emailU.value, curso));
     // Mensaje de inscripción exitosa
-    inscripcionExitosa.innerText = `¡Felicidades, ${nombreU.value} ${apellidoU.value}! Ya estás a un paso de formar parte de nuestra escuela. Te hemos enviado un correo electrónico para completes el pago de tu inscripción. Tu curso de japonés ${curso.nivel} tendrá un costo de $${curso.costoMensual}. Estás inscrito en este horario: ${curso.horario} ${curso.hora}`;
+    inscripcionExitosa.innerHTML = `🥳¡Felicidades, <b>${nombreU.value} ${apellidoU.value}</b>!🥳<br><br>Ya estás a un paso de formar parte de nuestra escuela. Te hemos enviado un correo electrónico para completes el pago de tu inscripción.<br><br>Tu curso de <b>Japonés ${curso.nivel}</b> tendrá un costo de <b>$${curso.costoMensual}</b>. Estás inscrito en este horario: <b>${curso.horario} ${curso.hora}</b>`;
 }
+// Reiniciar el div de inscripcion
+botonReiniciar = document.getElementById("boton-reiniciar");
+botonReiniciar.onclick = () => {inscripcionExitosa.innerHTML = "";}; 

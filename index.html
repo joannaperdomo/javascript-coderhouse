@@ -28,7 +28,7 @@
                                 <a class="nav-link" href="#">Salones</a>
                               </li>
                               <li class="nav-item me-5">
-                                <a class="nav-link" href="#">Examen</a>
+                                <a class="nav-link" href="pages/examen.html">Examen</a>
                               </li>
                               </li>
                             </ul>
@@ -36,21 +36,20 @@
                     </div>
                 </nav>
                 <section class="row section section1 g-0">
-                  <h2 class="titulo">Cursos de Japonés en línea</h2>
-                 
+                  <h2 class="titulo titulo-principal">Cursos de Japonés en línea</h2>
                   <img id="fondoRojo" src="img/fondo.png" alt=""> 
                 </section>
                 <section class="row section section2 g-0">
                   <h2 class="titulo">Horarios disponibles</h2>
                   <div class="wrapper">
                     <div class="niveles">
-                      <div class="modalidad">
+                      <div class="nivel">
                         Semanales
                       </div>
-                      <div class="modalidad">
+                      <div class="nivel">
                         Intensivo
                       </div>
-                      <div class="modalidad">
+                      <div class="nivel">
                         Sabatinos
                       </div>
                     </div>
@@ -82,7 +81,7 @@
                 </section>
                 
                 <section class="row section section3 g-0">
-                    <div class="maintext">
+                    <div class="form">
                         <h2 class="titulo">¡Inscríbete!</h2>
                         <form id="formulario" action="" class="formulario">
                           <label for="nombre">Nombre: </label>
@@ -113,10 +112,11 @@
                             <label class="boton btn" for="btn-sabatino">Sabatino</label>
                           </div><br>
                           <input type="submit" class="btn btn-light" value="¡Inscribirme!">
-                          <input type="reset" class="btn btn-dark" value="Reiniciar">
+                          <input id="boton-reiniciar" type="reset" class="btn btn-dark" value="Reiniciar">
                         </form>
                     </div>
-                    <div id="inscripcion-exitosa"></div>
+                    <div id="inscripcion-exitosa">
+                    </div>
                 </section>
             </div>
         </div>
