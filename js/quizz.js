@@ -1,5 +1,3 @@
-
-
 // Funciones para el quiz
 
 let contadordeRespuestas = 0;
@@ -67,7 +65,7 @@ const preguntas = [
     {
         question: "日__語 は　おもしろい　です。",
         answers: {
-            1: "本",
+            1: "本",    
             2: "体",
             3: "休"
         },
@@ -157,8 +155,11 @@ function mostrarResultados(){
             respuestasAcertadas.push("prueba");
         }
     });
-
     quizContenedor.innerText = `Has acertado ${respuestasAcertadas.length} de ${preguntas.length}`
+    const resultadoFinal = {aciertos: respuestasAcertadas.length, examenCulminado: true};
+    const resultadoFinalEnJSON = JSON.stringify(resultadoFinal);
+    localStorage.setItem("resultados", resultadoFinalEnJSON);
+
 
 };
 
