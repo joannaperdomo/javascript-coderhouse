@@ -8,7 +8,7 @@ function crearQuiz(){
     for (opcion in preguntas[contadordeRespuestas].answers){
         opciones.push(
             `<label>
-            <input type="radio" name="question" value="${opcion}">
+            <input type="radio" name="question" class="radio-button-quiz" value="${opcion}">
             ${preguntas[contadordeRespuestas].answers[opcion]}
             </label><br>`
         )
@@ -45,76 +45,31 @@ const preguntas = [
         respuesta: 1
     },
     {
-        question: "日__語 は　おもしろい　です。",
+        question: "山田さんは毎日学校＿＿来ます。",
         answers: {
-            1: "本",
-            2: "体",
-            3: "休"
+            1: "に",
+            2: "へ",
+            3: "で"
+        },
+        respuesta: 2
+    },
+    {
+        question: "今日は六＿＿にともだちに会います。",
+        answers: {
+            1: "時",
+            2: "侍",
+            3: "待"
         },
         respuesta: 1
     },
     {
-        question: "日__語 は　おもしろい　です。",
+        question: "昨日はラメんを＿＿＿＿＿。",
         answers: {
-            1: "本",
-            2: "体",
-            3: "休"
+            1: "食べます",    
+            2: "食べたい",
+            3: "食べました"
         },
-        respuesta: 1
-    },
-    {
-        question: "日__語 は　おもしろい　です。",
-        answers: {
-            1: "本",    
-            2: "体",
-            3: "休"
-        },
-        respuesta: 1
-    },
-    {
-        question: "日__語 は　おもしろい　です。",
-        answers: {
-            1: "本",
-            2: "体",
-            3: "休"
-        },
-        respuesta: 1
-    },
-    {
-        question: "日__語 は　おもしろい　です。",
-        answers: {
-            1: "本",
-            2: "体",
-            3: "休"
-        },
-        respuesta: 1
-    },
-    {
-        question: "日__語 は　おもしろい　です。",
-        answers: {
-            1: "本",
-            2: "体",
-            3: "休"
-        },
-        respuesta: 1
-    },
-    {
-        question: "日__語 は　おもしろい　です。",
-        answers: {
-            1: "本",
-            2: "体",
-            3: "休"
-        },
-        respuesta: 1
-    },
-    {
-        question: "日__語 は　おもしろい　です。",
-        answers: {
-            1: "本",
-            2: "体",
-            3: "休"
-        },
-        respuesta: 1
+        respuesta: 3
     }
 ];
 
@@ -124,6 +79,11 @@ let resultadosGuardados = JSON.parse(localStorage.getItem("resultados"));
 
 resultadosGuardados == null && crearQuiz();
 resultadosGuardados !== null && mostrarResultadoObtenido();
+
+
+// Cambiar el color del boton al seleccionar pregunta
+
+quizContenedor.addEventListener('change', () => {botonEnviar.style.backgroundColor = "#007EA7"; botonEnviar.style.color = "white";});
 
 
 // Añadir respuestas y pasar a la siguiente pregunta
@@ -145,6 +105,7 @@ botonEnviar.onclick = () => {
         botonEnviar.remove();
         mostrarResultados()
     }
+    botonEnviar.style.backgroundColor = "";
 };
 
 // Funcion para mostrar los resultados
