@@ -120,7 +120,11 @@ const preguntas = [
 
 // Mostrar el quiz
 
-crearQuiz();
+let resultadosGuardados = JSON.parse(localStorage.getItem("resultados"));
+
+resultadosGuardados == null && crearQuiz();
+resultadosGuardados !== null && mostrarResultadoObtenido();
+
 
 // Añadir respuestas y pasar a la siguiente pregunta
 
@@ -146,6 +150,12 @@ botonEnviar.onclick = () => {
 // Funcion para mostrar los resultados
 
 let respuestasAcertadas = [];
+
+// Mostrar resultados si el usuario ya había presentado el examen
+function mostrarResultadoObtenido (){
+    quizContenedor.innerText = `Ya has presentado este examen. Obtuviste una nota de ${resultadosGuardados.aciertos}/${preguntas.length}.`
+
+}
 
 function mostrarResultados(){
 
