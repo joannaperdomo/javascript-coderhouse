@@ -107,6 +107,7 @@ botonEnviar.onclick = () => {
         mostrarResultados()
     }
     botonEnviar.style.backgroundColor = "";
+    botonEnviar.style.color = "";
 };
 
 // Funcion para mostrar los resultados
