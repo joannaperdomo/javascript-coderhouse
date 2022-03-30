@@ -22,6 +22,8 @@ function crearQuiz(){
 // Get elements
 const quizContenedor = document.getElementById("quiz");
 const botonEnviar = document.getElementById("enviar");
+let resultadosGuardados = JSON.parse(localStorage.getItem("resultados"));
+
 
 
 // Array con preguntas y respuestas
@@ -73,10 +75,7 @@ const preguntas = [
     }
 ];
 
-// Mostrar el quiz
-
-let resultadosGuardados = JSON.parse(localStorage.getItem("resultados"));
-
+// Revisar si el usuario ya ha presentado el quiz o no
 resultadosGuardados == null && crearQuiz();
 resultadosGuardados !== null && mostrarResultadoObtenido();
 
@@ -92,12 +91,14 @@ const respuestasDelUsuario = [];
 
 botonEnviar.onclick = () => {
     const elemento = document.getElementsByName("question");
+    // Loop para encontrar la opcion seleccionada
     for (i = 0; i < elemento.length; i++){
         if(elemento[i].checked){
             const obj = {pregunta:preguntas[contadordeRespuestas].question,respuesta:elemento[i].value}
             respuestasDelUsuario.push(obj);
         }
     };
+    // Condicion para pasar a la siguiente pregunta o terminar el quiz
     if (contadordeRespuestas < preguntas.length - 1){
         contadordeRespuestas++
         crearQuiz()
@@ -114,6 +115,7 @@ let respuestasAcertadas = [];
 
 // Mostrar resultados si el usuario ya había presentado el examen
 function mostrarResultadoObtenido (){
+    botonEnviar.remove();
     quizContenedor.innerText = `Ya has presentado este examen. Obtuviste una nota de ${resultadosGuardados.aciertos}/${preguntas.length}.`
 
 }
