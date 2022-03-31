@@ -3,7 +3,7 @@
 let contadordeRespuestas = 0;
 
 function crearQuiz(){
-    // variable para guardar preguntas
+    // variable para generar las preguntas con sus opciones
     const opciones = [];
     for (opcion in preguntas[contadordeRespuestas].answers){
         opciones.push(
@@ -13,7 +13,7 @@ function crearQuiz(){
             </label><br>`
         )
     }
-    resultadoHTML = opciones.join(" ");
+    let resultadoHTML = opciones.join(" ");
     quizContenedor.innerHTML = `
     <h2>${preguntas[contadordeRespuestas].question}</h2><br>
     ${resultadoHTML}`;
@@ -35,7 +35,8 @@ const preguntas = [
             2: "を",
             3: "は"
         },
-        respuesta: 3
+        respuesta: 3,
+        valor: 1
     },
     {
         question: "日__語 は　おもしろい　です。",
@@ -44,7 +45,8 @@ const preguntas = [
             2: "体",
             3: "休"
         },
-        respuesta: 1
+        respuesta: 1,
+        valor: 1
     },
     {
         question: "山田さんは毎日学校＿＿来ます。",
@@ -53,7 +55,8 @@ const preguntas = [
             2: "へ",
             3: "で"
         },
-        respuesta: 2
+        respuesta: 2,
+        valor: 2
     },
     {
         question: "今日は六＿＿にともだちに会います。",
@@ -62,7 +65,8 @@ const preguntas = [
             2: "侍",
             3: "待"
         },
-        respuesta: 1
+        respuesta: 1,
+        valor: 2
     },
     {
         question: "昨日はラメんを＿＿＿＿＿。",
@@ -71,13 +75,23 @@ const preguntas = [
             2: "食べたい",
             3: "食べました"
         },
-        respuesta: 3
+        respuesta: 3,
+        valor: 3
+    },
+    {
+        question: "どの国に＿＿ことがありますか。",
+        answers: {
+            1: "行く",    
+            2: "行った",
+            3: "行けば"
+        },
+        respuesta: 2,
+        valor: 3
     }
 ];
 
 // Revisar si el usuario ya ha presentado el quiz o no
-resultadosGuardados == null && crearQuiz();
-resultadosGuardados !== null && mostrarResultadoObtenido();
+resultadosGuardados? mostrarResultadoObtenido() : crearQuiz();
 
 
 // Cambiar el color del boton al seleccionar pregunta
@@ -94,7 +108,10 @@ botonEnviar.onclick = () => {
     // Loop para encontrar la opcion seleccionada
     for (i = 0; i < elemento.length; i++){
         if(elemento[i].checked){
-            const obj = {pregunta:preguntas[contadordeRespuestas].question,respuesta:elemento[i].value}
+            const obj = {
+                pregunta:preguntas[contadordeRespuestas].question,
+                respuesta:elemento[i].value
+            }
             respuestasDelUsuario.push(obj);
         }
     };
@@ -119,23 +136,29 @@ function mostrarResultadoObtenido (){
     botonEnviar.remove();
     quizContenedor.innerText = `Ya has presentado este examen. Obtuviste una nota de ${resultadosGuardados.aciertos}/${preguntas.length}.`
 
-}
+};
+
+// Sumar el valor de las respuestas para calcular la nota final
+function calcularNotaFinal(...aciertos) {
+	return aciertos.reduce((acc, n) => acc + n,0);
+};
 
 function mostrarResultados(){
 
     respuestasDelUsuario.forEach(respuesta => {
        let preguntaBase = preguntas.find((el) => el.question == respuesta.pregunta);
-        if (preguntaBase.respuesta == respuesta.respuesta){
-            respuestasAcertadas.push("prueba");
-        }
+       // Contar respuestas 
+       preguntaBase.respuesta == respuesta.respuesta && 
+       respuestasAcertadas.push(preguntaBase.valor);
     });
+    // Mensaje al usuario
     quizContenedor.innerText = `Has acertado ${respuestasAcertadas.length} de ${preguntas.length}`
-    const resultadoFinal = {aciertos: respuestasAcertadas.length, examenCulminado: true};
+    // Guardar resultado en local storage
+    const resultadoFinal = {aciertos: respuestasAcertadas.length, notaFinal: calcularNotaFinal(...respuestasAcertadas)};
     const resultadoFinalEnJSON = JSON.stringify(resultadoFinal);
     localStorage.setItem("resultados", resultadoFinalEnJSON);
 
 
 };
-
 
 
