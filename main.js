@@ -45,12 +45,8 @@ function Alumno(nombre, apellido, email, curso){
     this.email = email;
     this.curso = curso;
     this.numeroEstudiante = 0; 
-    if(todosLosAlumnos.length == 0) {
-        this.numeroEstudiante = 100;
-    } else {
-        this.numeroEstudiante = todosLosAlumnos.length + 100;
-    }
-};
+    todosLosAlumnos.length == 0 ? this.numeroEstudiante = 100 : this.numeroEstudiante = todosLosAlumnos.length + 100;
+    };
 
 // Data de usuario (del formulario)
 const formulario = document.getElementById("formulario");
@@ -65,7 +61,7 @@ let botonSeleccionado = document.querySelectorAll(".radio2");
 
 botonSeleccionado.forEach(element =>  addEventListener('change', enviarData));
 
-// Funcion para enviar la data de los radio buttons
+// Funcion para enviar la data sobre el curso y modalidad escogida
 function enviarData (e){
     let opcion = e.target.name;
     switch (opcion) {
@@ -94,7 +90,8 @@ function enviarFormulario (e){
     // crear y añadir alumno al array de estudiantes
     todosLosAlumnos.push(new Alumno(nombreU.value, apellidoU.value, emailU.value, curso));
     // Mensaje de inscripción exitosa
-    inscripcionExitosa.innerHTML = `🥳¡Felicidades, <b>${nombreU.value} ${apellidoU.value}</b>!🥳<br><br>Ya estás a un paso de formar parte de nuestra escuela. Te hemos enviado un correo electrónico para completes el pago de tu inscripción.<br><br>Tu curso de <b>Japonés ${curso.nivel}</b> tendrá un costo de <b>$${curso.costoMensual}</b>. Estás inscrito en este horario: <b>${curso.horario} ${curso.hora}</b>`;
+    let {nivel, horario, hora} = curso;
+    inscripcionExitosa.innerHTML = `🥳¡Felicidades, <b>${nombreU.value} ${apellidoU.value}</b>!🥳<br><br>Ya estás a un paso de formar parte de nuestra escuela. Te hemos enviado un correo electrónico para completes el pago de tu inscripción.<br><br>Tu curso de <b>Japonés ${nivel}</b> tendrá un costo de <b>$${curso.costoMensual}</b>. Estás inscrito en este horario: <b>${horario} ${hora}</b>`;
 }
 // Reiniciar el div de inscripcion
 botonReiniciar = document.getElementById("boton-reiniciar");

@@ -76,8 +76,7 @@ const preguntas = [
 ];
 
 // Revisar si el usuario ya ha presentado el quiz o no
-resultadosGuardados == null && crearQuiz();
-resultadosGuardados !== null && mostrarResultadoObtenido();
+resultadosGuardados? mostrarResultadoObtenido() : crearQuiz();
 
 
 // Cambiar el color del boton al seleccionar pregunta
@@ -125,9 +124,8 @@ function mostrarResultados(){
 
     respuestasDelUsuario.forEach(respuesta => {
        let preguntaBase = preguntas.find((el) => el.question == respuesta.pregunta);
-        if (preguntaBase.respuesta == respuesta.respuesta){
-            respuestasAcertadas.push("prueba");
-        }
+       // Contar respuestas 
+       preguntaBase.respuesta == respuesta.respuesta && respuestasAcertadas.push(preguntaBase);
     });
     quizContenedor.innerText = `Has acertado ${respuestasAcertadas.length} de ${preguntas.length}`
     const resultadoFinal = {aciertos: respuestasAcertadas.length, examenCulminado: true};
