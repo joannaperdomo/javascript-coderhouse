@@ -174,23 +174,23 @@ function calcularNivelRecomendado(notaFinal){
 };
 
 function mostrarResultados(){
-
+    // Recorrer cada respuesta del usuario para verificarla con la respuesta correcta
     respuestasDelUsuario.forEach(respuesta => {
        let preguntaBase = preguntas.find((el) => el.question == respuesta.pregunta);
        // Contar respuestas 
        preguntaBase.respuesta == respuesta.respuesta && 
        respuestasAcertadas.push(preguntaBase.valor);
     });
+
     // Mensaje al usuario
     let notaFinal = calcularNotaFinal(...respuestasAcertadas);
     quizContenedor.innerHTML = `Has acertado ${respuestasAcertadas.length} de ${preguntas.length}. 
     Te recomendamos que te inscribas en el <b>${calcularNivelRecomendado(notaFinal)}</b>.`;
+
     // Guardar resultado en local storage
     const resultadoFinal = {aciertos: respuestasAcertadas.length, notaFinal: notaFinal};
     const resultadoFinalEnJSON = JSON.stringify(resultadoFinal);
     localStorage.setItem("resultados", resultadoFinalEnJSON);
-
-
 };
 
 
