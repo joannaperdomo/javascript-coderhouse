@@ -96,3 +96,9 @@ function enviarFormulario (e){
 // Reiniciar el div de inscripcion
 botonReiniciar = document.getElementById("boton-reiniciar");
 botonReiniciar.onclick = () => {inscripcionExitosa.innerHTML = "";}; 
+
+// Animación del logo
+
+window.addEventListener('scroll', () => {
+    document.body.style.setProperty('--scroll', window.pageYOffset / (document.body.offsetHeight - window.innerHeight));
+  }, false);

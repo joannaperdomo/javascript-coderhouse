@@ -4,9 +4,6 @@
 body {
     background-color: #dfc298;
     font-family:'Lato', sans-serif;
-    overflow: scroll;
-    scroll-snap-type: y mandatory;
-    scroll-behavior: smooth;
 }
 
 
@@ -46,7 +43,6 @@ font-family: 'Roboto Slab', serif;
 
 .section{
     background-color: #dfc298;
-    scroll-snap-align: start;
 }
 
 .section1{
@@ -77,12 +73,9 @@ font-family: 'Roboto Slab', serif;
 }
 
 @keyframes spin {
-    from {
-        transform:rotate(0deg);
-    }
     to {
-        transform:rotate(360deg);
-    }
+        transform: rotate(360deg);
+      }
 }   
 
 .section2{
@@ -139,18 +132,16 @@ font-family: 'Roboto Slab', serif;
 
 /* Barra lateral */
 
-.logo, .logo2 {
+.logo{
     width: 60px;
     height: auto;
     position: fixed;
     margin-top: 30px;
-}
-
-.logo:hover{
-    animation-name: spin;
-    animation-duration: 5000ms;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear; 
+    animation: spin 1s linear infinite;
+    animation-play-state: paused;
+    animation-delay: calc(var(--scroll) * -1s);
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
 }
 
 .sidebar{
