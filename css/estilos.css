@@ -212,13 +212,18 @@ font-family: 'Roboto Slab', serif;
 
 
 /* TEST CARDS */
-#test-card-container.{
-    
+#test-card-container{
+    display: flex;
+    gap: 5%;
+    justify-content: center;
+
 }
 
 .test-card{
     background-color: #721121;
-    width: 45%;
+    width: 50%;
+    padding: 20px;
+    border-radius: 10px;
 }
 
 /* QUIZ */
