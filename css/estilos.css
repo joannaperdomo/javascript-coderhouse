@@ -211,17 +211,27 @@ font-family: 'Roboto Slab', serif;
 }
 
 
-/* QUIZ */
-
-#nivelacion-contenedor{
-    padding-top: 50px;
-    align-content: flex-start;
-    background-image: url(../img/flores.png);
-    background-repeat: no-repeat;
-    background-size: cover;
+/* TEST CARDS */
+#test-card-container.{
     
 }
 
+.test-card{
+    background-color: #721121;
+    width: 45%;
+}
+
+/* QUIZ */
+
+#nivelacion-contenedor{
+    height: 90vh;
+    padding-top: 30px;
+    align-content: flex-start;
+/*     background-image: url(../img/flores.png);
+    background-repeat: no-repeat;
+    background-size: cover; */
+    
+}
 #quiz{
     background-color: #E6E6E6;
     color: #051014;
