@@ -2,8 +2,11 @@
 
 
 body {
-    background-color: #BCBDC0;
+    background-color: #dfc298;
     font-family:'Lato', sans-serif;
+    overflow: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
 }
 
 
@@ -20,7 +23,7 @@ font-family: 'Roboto Slab', serif;
 
 .barra{
     text-transform: uppercase;
-    background-color: #BCBDC0;
+    background-color: #dfc298;
     font-weight: bolder;
 
 }
@@ -42,13 +45,14 @@ font-family: 'Roboto Slab', serif;
 }
 
 .section{
-    background-color: #BCBDC0;
+    background-color: #dfc298;
+    scroll-snap-align: start;
 }
 
 .section1{
     height: 95vh;
-    background-image: url(../img/fondo2.png), url(../img/fondo3.png), url(../img/sol.png);
-    background-position: 100% 100%, 0% 100%, 50% 85%;
+    background-image: url(../img/fondo2.png), url(../img/fondo3.png), url(../img/sol1.png);
+    background-position: 100% 100%, 0% 100%, 50% 50%;
     background-repeat: no-repeat;
     background-size: 70%,60%,40%;
     animation-name: backgroundSlideIn;
@@ -69,16 +73,25 @@ font-family: 'Roboto Slab', serif;
 
 @keyframes backgroundSlideIn {
     from {background-position: 100% 500%, 0% 500%, 50% 500%;}
-    to {background-position: 100% 100%, 0% 100%, 50% 85%;} 
+    to {background-position: 100% 100%, 0% 100%, 50% 50%;} 
 }
 
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}   
+
 .section2{
-    background-color: #721121;
+    background-color: #141430;
     padding: 100px;
 }
 
 .section3{
-    background-color: #051014;
+    background-color: #dfc298;
     color: white;
     height: 100vh;
     padding: 0px 100px 50px 100px;
@@ -106,9 +119,8 @@ font-family: 'Roboto Slab', serif;
 
 .modalidad, .nivel{
     text-transform: uppercase;
-    background-color: #051014;
+    background-color: #dfc298;
     border-radius: 15px 15px 0px 0px;
-    color: white;
     margin-top: 10px;
     padding: 15px;
     text-align: center;
@@ -126,12 +138,28 @@ font-family: 'Roboto Slab', serif;
 }
 
 /* Barra lateral */
+
+.logo, .logo2 {
+    width: 60px;
+    height: auto;
+    position: fixed;
+    margin-top: 30px;
+}
+
+.logo:hover{
+    animation-name: spin;
+    animation-duration: 5000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear; 
+}
+
 .sidebar{
-    background-color: #721121;
+    background-color: #141430;
     text-transform: uppercase;
     font-weight: bolder;
-    display: flex;
     justify-content: center;
+    align-items: flex-start;
+    display: flex;
 }
 
 .socialmedia{
@@ -193,10 +221,29 @@ font-family: 'Roboto Slab', serif;
 
 
 /* QUIZ */
+
+#nivelacion-contenedor{
+    padding-top: 50px;
+    align-content: flex-start;
+    background-image: url(../img/flores.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
 #quiz{
     background-color: #E6E6E6;
     color: #051014;
     padding: 15px;
-    text-align: center;
-    border-radius: 15px 15px 0px 0px;
 }
+
+.progress-bar{
+    background-color: #470B15;
+}
+
+.progress{
+    background-color: #E6E6E6;
+    border-radius: 5px 5px 0px 0px;
+
+}
+

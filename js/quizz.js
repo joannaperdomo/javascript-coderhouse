@@ -123,8 +123,21 @@ botonEnviar.onclick = () => {
         botonEnviar.remove();
         mostrarResultados()
     }
+    // Actualizar progreso de la barra
+    actualizarBarraDeProgreso();
+    // Regresar el botón a su estilo original
     botonEnviar.style.backgroundColor = "";
     botonEnviar.style.color = "";
+};
+
+let barraProgreso = 0;
+
+function actualizarBarraDeProgreso(){
+    const barra = document.getElementById("quiz-progress-bar");
+    let incrementoBarra = 100/preguntas.length;
+    barraProgreso = barraProgreso + incrementoBarra;
+    console.log(barraProgreso);
+    barra.style = `width: ${barraProgreso}%;`;
 };
 
 // Funcion para mostrar los resultados
@@ -134,13 +147,30 @@ let respuestasAcertadas = [];
 // Mostrar resultados si el usuario ya había presentado el examen
 function mostrarResultadoObtenido (){
     botonEnviar.remove();
-    quizContenedor.innerText = `Ya has presentado este examen. Obtuviste una nota de ${resultadosGuardados.aciertos}/${preguntas.length}.`
-
+    quizContenedor.innerHTML = `Ya has presentado esta prueba. Acertaste ${resultadosGuardados.aciertos} preguntas de ${preguntas.length}. Te recomendamos que te inscribas en el <b>${calcularNivelRecomendado(resultadosGuardados.notaFinal)}</b>.`;
+    crearBotonDeInscripcion();
 };
+
+// Crear boton de inscripcion
+function crearBotonDeInscripcion(){
+    let contenedor = document.getElementById('nivelacion-contenedor');
+    let boton = document.createElement('button');
+    boton.className = 'btn-light'
+    boton.innerHTML = 'Inscribirme';
+    contenedor.append(boton)
+    
+}
 
 // Sumar el valor de las respuestas para calcular la nota final
 function calcularNotaFinal(...aciertos) {
 	return aciertos.reduce((acc, n) => acc + n,0);
+};
+
+function calcularNivelRecomendado(notaFinal){
+    return notaFinal > 4 ? notaFinal > 8 ? 
+    'Nivel Avanzado':
+    'Nivel Intermedio':
+    'Nivel Principiante';    
 };
 
 function mostrarResultados(){
@@ -152,9 +182,11 @@ function mostrarResultados(){
        respuestasAcertadas.push(preguntaBase.valor);
     });
     // Mensaje al usuario
-    quizContenedor.innerText = `Has acertado ${respuestasAcertadas.length} de ${preguntas.length}`
+    let notaFinal = calcularNotaFinal(...respuestasAcertadas);
+    quizContenedor.innerHTML = `Has acertado ${respuestasAcertadas.length} de ${preguntas.length}. 
+    Te recomendamos que te inscribas en el <b>${calcularNivelRecomendado(notaFinal)}</b>.`;
     // Guardar resultado en local storage
-    const resultadoFinal = {aciertos: respuestasAcertadas.length, notaFinal: calcularNotaFinal(...respuestasAcertadas)};
+    const resultadoFinal = {aciertos: respuestasAcertadas.length, notaFinal: notaFinal};
     const resultadoFinalEnJSON = JSON.stringify(resultadoFinal);
     localStorage.setItem("resultados", resultadoFinalEnJSON);
 
