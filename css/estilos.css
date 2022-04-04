@@ -35,8 +35,8 @@ Rojo: #721121
 
 .titulo{
     color: white;
-    font-size: 52px;
-    padding-bottom: 25px;
+    font-size: 42px;
+    padding-bottom: 15px;
     font-family: 'Bree Serif';
     width: 60%;
     text-shadow: 1px 1px 2px gray;
@@ -93,7 +93,7 @@ Rojo: #721121
     background-color: #dfc298;
     color: white;
     height: 100vh;
-    padding: 0px 100px 50px 100px;
+    padding: 0px 100px 50px 50px;
     display: flex;
     align-content: center;
 }
@@ -217,17 +217,36 @@ Rojo: #721121
 }
 
 
+/* TEST CARDS */
+#test-card-container{
+    display: flex;
+    gap: 5%;
+    justify-content: center;
+
+}
+
+.test-card{
+    background-color: #721121;
+    width: 50%;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.img-test{
+    width: 60%;
+    display: flex;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
 /* QUIZ */
 
 #nivelacion-contenedor{
-    padding-top: 50px;
+    height: 90vh;
+    padding-top: 30px;
     align-content: flex-start;
-    background-image: url(../img/flores.png);
-    background-repeat: no-repeat;
-    background-size: cover;
     
 }
-
 #quiz{
     background-color: #E6E6E6;
     color: #051014;
@@ -242,5 +261,25 @@ Rojo: #721121
     background-color: #E6E6E6;
     border-radius: 5px 5px 0px 0px;
 
+}
+
+/*Animaciones de los personajes*/
+
+.test-card:hover #writting-hand{
+    animation: wheel 2s infinite linear;
+    transform-origin: center;
+    transform-box: fill-box;
+}
+
+@keyframes wheel {
+    0% {
+        transform: rotate(0deg);
+    }
+    50%{
+        transform: rotate(10deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
 }
 

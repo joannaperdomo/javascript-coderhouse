@@ -154,9 +154,10 @@ function mostrarResultadoObtenido (){
 // Crear boton de inscripcion
 function crearBotonDeInscripcion(){
     let contenedor = document.getElementById('nivelacion-contenedor');
-    let boton = document.createElement('button');
-    boton.className = 'btn-light'
+    let boton = document.createElement('a');
+    boton.className = 'btn btn-light'
     boton.innerHTML = 'Inscribirme';
+    boton.href = "../index.html#seccion-inscripcion";
     contenedor.append(boton)
     
 }
