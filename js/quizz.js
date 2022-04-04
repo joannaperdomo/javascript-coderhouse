@@ -96,7 +96,7 @@ resultadosGuardados? mostrarResultadoObtenido() : crearQuiz();
 
 // Cambiar el color del boton al seleccionar pregunta
 
-quizContenedor.addEventListener('change', () => {botonEnviar.style.backgroundColor = "#007EA7"; botonEnviar.style.color = "white";});
+quizContenedor.addEventListener('change', () => {botonEnviar.style.backgroundColor = "#141430"; botonEnviar.style.color = "white";});
 
 
 // Añadir respuestas y pasar a la siguiente pregunta
@@ -105,6 +105,7 @@ const respuestasDelUsuario = [];
 
 botonEnviar.onclick = () => {
     const elemento = document.getElementsByName("question");
+    let contadordeopciones = 0;
     // Loop para encontrar la opcion seleccionada
     for (i = 0; i < elemento.length; i++){
         if(elemento[i].checked){
@@ -113,9 +114,15 @@ botonEnviar.onclick = () => {
                 respuesta:elemento[i].value
             }
             respuestasDelUsuario.push(obj);
+            contadordeopciones++;
         }
     };
-    // Condicion para pasar a la siguiente pregunta o terminar el quiz
+    contadordeopciones == 0? console.log("falto respuestas"):pasarASiguientePregunta();
+
+};
+
+// Condicion para pasar a la siguiente pregunta o terminar el quiz
+function pasarASiguientePregunta (){
     if (contadordeRespuestas < preguntas.length - 1){
         contadordeRespuestas++
         crearQuiz()
@@ -136,7 +143,6 @@ function actualizarBarraDeProgreso(){
     const barra = document.getElementById("quiz-progress-bar");
     let incrementoBarra = 100/preguntas.length;
     barraProgreso = barraProgreso + incrementoBarra;
-    console.log(barraProgreso);
     barra.style = `width: ${barraProgreso}%;`;
 };
 
