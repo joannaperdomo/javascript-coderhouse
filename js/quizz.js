@@ -117,8 +117,19 @@ botonEnviar.onclick = () => {
             contadordeopciones++;
         }
     };
-    contadordeopciones == 0? console.log("falto respuestas"):pasarASiguientePregunta();
+    contadordeopciones == 0? enviarAlertaNoRespuestaSeleccionada():pasarASiguientePregunta();
 
+};
+
+// Respuesta de sweet alert si el usuario no marcó ninguna opción
+function enviarAlertaNoRespuestaSeleccionada(){
+    swal({
+        title: "¡Error!",
+        text: "No seleccionaste ninguna opción",
+        icon:"error",
+        button: "Regresar",
+        closeOnEsc: true
+    });
 };
 
 // Condicion para pasar a la siguiente pregunta o terminar el quiz

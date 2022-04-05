@@ -87,15 +87,38 @@ function enviarFormulario (e){
     e.preventDefault();
     //crear objeto
     let curso = cursos.find((el) => el.nivel == nivelU && el.modalidad == modalidadU);
-    // crear y añadir alumno al array de estudiantes
-    todosLosAlumnos.push(new Alumno(nombreU.value, apellidoU.value, emailU.value, curso));
-    // Mensaje de inscripción exitosa
-    let {nivel, horario, hora} = curso;
-    inscripcionExitosa.innerHTML = `🥳¡Felicidades, <b>${nombreU.value} ${apellidoU.value}</b>!🥳<br><br>Ya estás a un paso de formar parte de nuestra escuela. Te hemos enviado un correo electrónico para completes el pago de tu inscripción.<br><br>Tu curso de <b>Japonés ${nivel}</b> tendrá un costo de <b>$${curso.costoMensual}</b>. Estás inscrito en este horario: <b>${horario} ${hora}</b>`;
+    curso == undefined? mensajeAlerta("No seleccionaste ningún curso.") : inscribir();
+
+    function inscribir() {
+        if (nombreU.value !== '' && apellidoU.value !== '' && emailU.value !== ''){
+            // crear y añadir alumno al array de estudiantes
+            todosLosAlumnos.push(new Alumno(nombreU.value, apellidoU.value, emailU.value, curso));
+            // Mensaje de inscripción exitosa
+            let {nivel, horario, hora} = curso;
+            inscripcionExitosa.innerHTML = `🥳¡Felicidades, <b>${nombreU.value} ${apellidoU.value}</b>!🥳<br><br>Ya estás a un paso de formar parte de nuestra escuela. Te hemos enviado un correo electrónico para completes el pago de tu inscripción.<br><br>Tu curso de <b>Japonés ${nivel}</b> tendrá un costo de <b>$${curso.costoMensual}</b>. Estás inscrito en este horario: <b>${horario} ${hora}</b>`;
+        } else {
+            mensajeAlerta("Te falta completar todos los datos.");
+        }
+    }
+
+    function mensajeAlerta(mensajeError){
+        swal({
+            title: "¡Error!",
+            text: mensajeError,
+            icon:"error",
+            button: "Regresar",
+            closeOnEsc: true
+        });
+    }
 }
+
+
 // Reiniciar el div de inscripcion
 botonReiniciar = document.getElementById("boton-reiniciar");
-botonReiniciar.onclick = () => {inscripcionExitosa.innerHTML = "";}; 
+botonReiniciar.onclick = () => {
+    inscripcionExitosa.innerHTML = "";
+    modalidadU = "";
+    nivelU = ""}; 
 
 // Animación del logo
 

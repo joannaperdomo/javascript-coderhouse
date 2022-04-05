@@ -159,6 +159,10 @@ Rojo: #721121
     display: flex;
 }
 
+.sidebar-seccion{
+    height: 100vh;
+}
+
 .socialmedia{
     width: fit-content;
     color: #E6E6E6;
@@ -262,6 +266,14 @@ Rojo: #721121
     border-radius: 5px 5px 0px 0px;
 
 }
+
+.swal-button--confirm{
+    padding: 7px 19px;
+    background-color: #141430;
+    font-size: 12px;
+    border: 1px solid #141430;
+    text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
+  }
 
 /*Animaciones de los personajes*/
 
