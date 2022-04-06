@@ -295,3 +295,41 @@ Rojo: #721121
     }
 }
 
+/* TABLETS AND SMALL SCREENS */
+
+@media  only screen and (max-width:768px) {
+    .logo{
+        width: 40px;
+    }
+
+    #fondoRojo{
+        width: auto;
+    }
+
+    .nivel{
+        width: 0px;
+        height: 0px;
+        font-size: 0px;
+        padding: 0px;
+        margin: 0px
+    }
+
+    #test-card-container{
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+
+    .test-card{
+        width: 90%;
+    }
+
+    .sidebar-seccion{
+        height: 100%;
+    }
+
+    #nivelacion-contenedor{
+        height: 100%;
+        padding: 0px;
+        padding-top: 20px;
+    }
+}
