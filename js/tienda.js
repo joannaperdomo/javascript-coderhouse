@@ -26,19 +26,20 @@ for (let i = 0; i < productos.length; i++){
     <div class="texto-producto">
     <p>${productos[i].nombre}<p>
     <p>$${productos[i].precio}</p>
-    <a class="btn btn-dark añadir-al-carrito-btn"" >Añadir</a></div>
+    <a name="${productos[i].codigo}" class="btn btn-dark añadir-al-carrito-btn"" >Añadir</a></div>
     <img src="../img/productos/${productos[i].img}" alt="${productos[i].nombre}">`;
     producto.className = "producto";
     containerProductos.append(producto);  
 };
 
 // Get elements del DOM
-let botonDeAñadirAlCarrito = document.getElementsByClassName('añadir-al-carrito-btn');
+let botonDeAñadirAlCarrito = document.querySelectorAll(".añadir-al-carrito-btn");
 
-botonDeAñadirAlCarrito[0].onclick = (e) => console.log(e.target);
+botonDeAñadirAlCarrito.forEach(e => addEventListener('click',encontrarProducto))
 
-function test () {
-    console.log('holi')
+function encontrarProducto (e) {
+    console.log(e.target.name)
+    productos.find
 }
 
 

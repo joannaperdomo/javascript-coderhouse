@@ -300,7 +300,7 @@ Rojo: #721121
 #productos{
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
+    flex-flow: wrap;
     gap: 25px;
 }
 
@@ -359,5 +359,14 @@ Rojo: #721121
         height: 100%;
         padding: 0px;
         padding-top: 20px;
+    }
+
+    #productos{
+        flex-flow: column;
+        align-items: center;
+    }
+    
+    .producto{
+        width: 80%;
     }
 }
