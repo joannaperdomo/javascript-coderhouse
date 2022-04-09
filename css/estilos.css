@@ -295,6 +295,34 @@ Rojo: #721121
     }
 }
 
+/* TIENDA */
+
+#productos{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.producto{
+    width: 30%;
+    background-color: #D9B582;
+    border-radius: 15px;
+    padding: 10px;
+    text-align: left;
+    display: flex;
+    align-content: space-between;
+}
+
+.texto-producto{
+    padding-right: 5px;
+}
+
+.producto img{
+    width: 30%;
+    margin-left: auto;
+}
+
 /* TABLETS AND SMALL SCREENS */
 
 @media  only screen and (max-width:768px) {
