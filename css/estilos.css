@@ -297,6 +297,39 @@ Rojo: #721121
 
 /* TIENDA */
 
+
+#barra-tienda{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+#filtros-tienda{
+    display: flex;
+    gap: 10px;
+    padding-bottom: 15px;
+
+}
+
+.numero-carrito{
+    color: white;
+    font-size: 12px;
+    text-align: center;
+    height: 20px;
+    width: 20px;
+    background-color: #721121;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    left: 40px;
+    bottom: 5px;
+}
+
+#carrito img{
+    width: 35px;
+}
+
+
 #productos{
     display: flex;
     justify-content: space-between;
