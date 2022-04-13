@@ -42,9 +42,9 @@ let botonDeAñadirAlCarrito = document.querySelectorAll(".añadir-al-carrito-btn
 botonDeAñadirAlCarrito.forEach(e => addEventListener('click',encontrarProducto))
 
 function encontrarProducto (e) {
+    carritoDelUsuario == 0 && numeroCarrito.classList.add('numero-carrito');
     // Encontrar la data del producto seleccionado
     let productoSeleccionado = productos.find((el) => el.codigo === e.target.name)
-    console.log(productoSeleccionado.codigo);
     // Guardar producto en el carrito del usuario
     carritoDelUsuario.push(productoSeleccionado);
     // Guardar producto en localStorage
@@ -52,5 +52,9 @@ function encontrarProducto (e) {
 
 }
 
+// Filtros de búsqueda
 
+const botonesDeFiltrado = document.querySelectorAll('.dropdown-item')
+
+botonesDeFiltrado.forEach(element =>  addEventListener('click', console.log(element.innerText)))
 
