@@ -356,6 +356,16 @@ Rojo: #721121
     margin-left: auto;
 }
 
+#resumen-compra{
+    background-color: #051014;
+    color: white;
+    height: 500px;
+    width: 500px;
+    position: absolute;
+    right: 0;
+    z-index: 1;
+    visibility: hidden;
+}
 /* TABLETS AND SMALL SCREENS */
 
 @media  only screen and (max-width:768px) {

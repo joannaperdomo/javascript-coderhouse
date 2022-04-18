@@ -39,7 +39,9 @@ const numeroCarrito = document.getElementById('numero-carrito');
 // Get elements del DOM
 let botonDeAñadirAlCarrito = document.querySelectorAll(".añadir-al-carrito-btn");
 
-botonDeAñadirAlCarrito.forEach(e => addEventListener('click',encontrarProducto))
+for (const e of botonDeAñadirAlCarrito){
+    e.addEventListener('click',encontrarProducto);
+}
 
 function encontrarProducto (e) {
     carritoDelUsuario == 0 && numeroCarrito.classList.add('numero-carrito');
@@ -54,7 +56,19 @@ function encontrarProducto (e) {
 
 // Filtros de búsqueda
 
-const botonesDeFiltrado = document.querySelectorAll('.dropdown-item')
 
-botonesDeFiltrado.forEach(element =>  addEventListener('click', console.log(element.innerText)))
+// Carrito
+const carrito = document.getElementById('carrito');
+carrito.addEventListener('mouseover', aparecerResumenCompra);
+carrito.addEventListener('mouseout', desaparecerResumenCompra);
+    
+function aparecerResumenCompra (){
+    const resumenCompra = document.getElementById('resumen-compra');
+    resumenCompra.style.visibility = 'visible';
+    resumenCompra.style.opacity = "1";
+};
 
+function desaparecerResumenCompra(){
+    const resumenCompra = document.getElementById('resumen-compra');
+    resumenCompra.style.visibility = 'hidden';
+}
