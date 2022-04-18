@@ -295,6 +295,77 @@ Rojo: #721121
     }
 }
 
+/* TIENDA */
+
+
+#barra-tienda{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+#filtros-tienda{
+    display: flex;
+    gap: 10px;
+    padding-bottom: 15px;
+
+}
+
+.numero-carrito{
+    color: white;
+    font-size: 12px;
+    text-align: center;
+    height: 20px;
+    width: 20px;
+    background-color: #721121;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    left: 40px;
+    bottom: 5px;
+}
+
+#carrito img{
+    width: 35px;
+}
+
+
+#productos{
+    display: flex;
+    justify-content: space-between;
+    flex-flow: wrap;
+    gap: 25px;
+}
+
+.producto{
+    width: 30%;
+    background-color: #D9B582;
+    border-radius: 15px;
+    padding: 10px;
+    text-align: left;
+    display: flex;
+    align-content: space-between;
+}
+
+.texto-producto{
+    padding-right: 5px;
+}
+
+.producto img{
+    width: 30%;
+    margin-left: auto;
+}
+
+#resumen-compra{
+    background-color: #051014;
+    color: white;
+    height: 500px;
+    width: 500px;
+    position: absolute;
+    right: 0;
+    z-index: 1;
+    visibility: hidden;
+}
 /* TABLETS AND SMALL SCREENS */
 
 @media  only screen and (max-width:768px) {
@@ -331,5 +402,14 @@ Rojo: #721121
         height: 100%;
         padding: 0px;
         padding-top: 20px;
+    }
+
+    #productos{
+        flex-flow: column;
+        align-items: center;
+    }
+    
+    .producto{
+        width: 80%;
     }
 }
