@@ -209,6 +209,9 @@ function mostrarResultados(){
     const resultadoFinal = {aciertos: respuestasAcertadas.length, notaFinal: notaFinal};
     const resultadoFinalEnJSON = JSON.stringify(resultadoFinal);
     localStorage.setItem("resultados", resultadoFinalEnJSON);
+
+    // Función para crear botón de inscripción
+    crearBotonDeInscripcion();
 };
 
 
