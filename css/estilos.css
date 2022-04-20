@@ -353,19 +353,45 @@ Rojo: #721121
 
 .producto img{
     width: 30%;
+    height: auto;
     margin-left: auto;
 }
 
 #resumen-compra{
-    background-color: #051014;
+    background-color: #141430;
+    border-radius: 15px;
+    font-weight: 10px;
     color: white;
-    height: 500px;
-    width: 500px;
+    width: 20%;
+    padding: 10px;
+    margin-right: 10px;
+    gap: 10px;
     position: absolute;
     right: 0;
     z-index: 1;
     visibility: hidden;
 }
+
+.producto-resumen{
+    width: 90%;
+    border-radius: 15px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #D9B582;
+    border-radius: 15px;
+    font-size: small;
+    display: flex;
+    justify-content: space-around;
+
+}
+
+#resumen-compra img{
+    width: 50px;
+    height: auto;
+}
+
+
+
 /* TABLETS AND SMALL SCREENS */
 
 @media  only screen and (max-width:768px) {

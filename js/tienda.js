@@ -54,21 +54,40 @@ function encontrarProducto (e) {
 
 }
 
-// Filtros de búsqueda
-
-
 // Carrito
 const carrito = document.getElementById('carrito');
-carrito.addEventListener('mouseover', aparecerResumenCompra);
-carrito.addEventListener('mouseout', desaparecerResumenCompra);
+const resumenCompra = document.getElementById('resumen-compra');
+
+function revisarCarrito(){
+    console.log('test');
+    resumenCompra.style.visibility == 'visible'? desaparecerResumenCompra() : aparecerResumenCompra();
+}
+
+
+carrito.addEventListener('click', revisarCarrito);
     
 function aparecerResumenCompra (){
-    const resumenCompra = document.getElementById('resumen-compra');
     resumenCompra.style.visibility = 'visible';
-    resumenCompra.style.opacity = "1";
+    let carritoDeCompra = [];
+    for (let i = 0; i < carritoDelUsuario.length; i++){
+        carritoDeCompra.push(
+           `<div class="producto-resumen">
+           <div class="producto-resumen-texto"><p>${carritoDelUsuario[i].nombre}</p>
+            <p>$${carritoDelUsuario[i].precio}</p></div>
+            <img src="../img/productos/${carritoDelUsuario[i].img}" alt="${carritoDelUsuario[i].nombre}"></div>`
+        );
+    };
+    let resultadoHTML = carritoDeCompra.join(" ");
+    resumenCompra.innerHTML = `
+    <h3>Tu carrito</h3>
+    ${resultadoHTML}
+    <a name="comprar" href="procesarcompra.html" class="btn btn-dark comprar-btn">Comprar</a></div>`
+    ;  
 };
 
 function desaparecerResumenCompra(){
-    const resumenCompra = document.getElementById('resumen-compra');
     resumenCompra.style.visibility = 'hidden';
 }
+
+
+// Procesar compra
