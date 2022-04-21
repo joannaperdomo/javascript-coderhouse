@@ -129,7 +129,8 @@ getKanji();
 function empezarDeNuevoElExamen(){
     let contenedor = document.getElementById('nivelacion-contenedor');
     let boton = document.createElement('a');
-    boton.className = 'btn btn-light'
+    boton.className = 'btn btn-light';
+    boton.id = 'reiniciar';
     boton.innerHTML = 'Empezar de nuevo';
     boton.href = "nivelacion.html";
     contenedor.append(boton)
