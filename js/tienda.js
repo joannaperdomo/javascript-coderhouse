@@ -89,5 +89,4 @@ function desaparecerResumenCompra(){
     resumenCompra.style.visibility = 'hidden';
 }
 
-
 // Procesar compra

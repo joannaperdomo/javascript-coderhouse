@@ -325,8 +325,18 @@ Rojo: #721121
     bottom: 5px;
 }
 
+
 #carrito img{
     width: 35px;
+    padding: 5px;
+}
+
+#carrito img:hover{
+    border: #051014;
+    border-style: solid;
+    border-radius: 5px;
+    border-width: thin;
+
 }
 
 
