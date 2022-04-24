@@ -33,7 +33,7 @@ for (let i = 0; i < productos.length; i++){
 };
 
 // Carrito del usuario
-const carritoDelUsuario = [];
+let carritoDelUsuario = [];
 const numeroCarrito = document.getElementById('numero-carrito');
 
 // Get elements del DOM
@@ -59,7 +59,6 @@ const carrito = document.getElementById('carrito');
 const resumenCompra = document.getElementById('resumen-compra');
 
 function revisarCarrito(){
-    console.log('test');
     resumenCompra.style.visibility == 'visible'? desaparecerResumenCompra() : aparecerResumenCompra();
 }
 
@@ -89,4 +88,11 @@ function desaparecerResumenCompra(){
     resumenCompra.style.visibility = 'hidden';
 }
 
-// Procesar compra
+// reiniciar 
+
+const reiniciarBoton = document.getElementById('reiniciar');
+reiniciarBoton.addEventListener('click',reiniciar);
+function reiniciar () {
+    console.log('hola');
+    location.reload(true);
+} 

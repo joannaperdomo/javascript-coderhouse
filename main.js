@@ -126,11 +126,3 @@ window.addEventListener('scroll', () => {
     document.body.style.setProperty('--scroll', window.pageYOffset / (document.body.offsetHeight - window.innerHeight));
   }, false);
 
-  // reiniciar pagina
-
-  const reiniciarBoton = document.getElementById('reiniciar');
-  reiniciarBoton.addEventListener('click',reiniciar());
-  function reiniciar () {
-      document.location.reload(true)
-      console.log('reload')
-  }

@@ -1,5 +1,6 @@
 const quizContenedor = document.getElementById('quiz');
 const botonEnviar = document.getElementById("enviar");
+const reiniciarBoton = document.getElementById('reiniciar-test');
 let kanjisMostradosEnElExamen = [];
 
 // Conseguir un kanji aleatorio
@@ -8,6 +9,7 @@ const kanjiRandomnizer = async () => {
     const resp = await fetch('https://kanjiapi.dev/v1/kanji/grade-1');
     const listaDeKanjis = await resp.json();
     let randomkanji = listaDeKanjis[Math.floor(Math.random() * listaDeKanjis.length)];
+    console.log(randomkanji);
     return randomkanji;
  }
 
@@ -21,10 +23,6 @@ const getRandomOption = async (kanji) => {
 const getKanji = async () => {
     // Obtener kanji aleatorio de la lista
     let kanjiAleatorio = await kanjiRandomnizer();
-    // Revisar que ese kanji no haya salido
-    while (kanjisMostradosEnElExamen.includes(kanjiAleatorio)){
-        kanjiAleatorio = kanjiRandomnizer();
-    }
     // Llamada para obtener data de ese kanji aleatorio
     let KanjiAleatorioResp = await fetch(`https://kanjiapi.dev/v1/kanji/${kanjiAleatorio}`)
     let kanjiAleatorioRespData = await KanjiAleatorioResp.json();
@@ -78,7 +76,6 @@ botonEnviar.onclick = () => {
                 pregunta:kanjisMostradosEnElExamen[kanjisMostradosEnElExamen.length - 1].kanji,
                 respuesta:elemento[i].value
             }
-            console.log(obj);
             respuestasDelUsuario.push(obj);
             contadordeopciones++;
         }
@@ -104,6 +101,7 @@ function pasarASiguientePregunta (){
         getKanji()
     } else {
         botonEnviar.remove();
+        reiniciarBoton.style.visibility = 'visible';
         mostrarResultados()
     }
     // Actualizar progreso de la barra
@@ -124,19 +122,6 @@ function actualizarBarraDeProgreso(){
 
 getKanji();
 
-// PROCESAR PREGUNTAS Y MOSTRAR RESULTADO FINAL
-
-function empezarDeNuevoElExamen(){
-    let contenedor = document.getElementById('nivelacion-contenedor');
-    let boton = document.createElement('a');
-    boton.className = 'btn btn-light';
-    boton.id = 'reiniciar';
-    boton.innerHTML = 'Empezar de nuevo';
-    boton.href = "nivelacion.html";
-    contenedor.append(boton)
-    
-}
-
 let respuestasAcertadas = [];
 
 function mostrarResultados(){
@@ -147,8 +132,11 @@ function mostrarResultados(){
         preguntaBase.respuesta == respuesta.respuesta && 
        respuestasAcertadas.push(preguntaBase.kanji);
     });
-    // Crear botón de reload
-    empezarDeNuevoElExamen();
     // Mensaje al usuario
     quizContenedor.innerHTML = `Has acertado ${respuestasAcertadas.length} de 10.`;
 };
+
+reiniciarBoton.addEventListener('click',reiniciar);
+function reiniciar () {
+    location.reload(true);
+} 
