@@ -71,15 +71,16 @@ function revisarCarrito(){
 carrito.addEventListener('click', revisarCarrito);
     
 function aparecerResumenCompra (){
+    let carritoGuardado = JSON.parse(localStorage.getItem("carrito"));
     resumenCompra.style.visibility = 'visible';
     let carritoDeCompra = [];
-    for (let i = 0; i < carritoDelUsuario.length; i++){
+    for (let i = 0; i < carritoGuardado.length; i++){
         carritoDeCompra.push(
            `<div class="producto-resumen">
-           <div class="producto-resumen-texto"><p>${carritoDelUsuario[i].nombre}</p>
-            <p>Total: $${carritoDelUsuario[i].precio}</p>
-            <p>Cantidad: ${carritoDelUsuario[i].cantidad}</p></div>
-            <img src="../img/productos/${carritoDelUsuario[i].img}" alt="${carritoDelUsuario[i].nombre}"></div>`
+           <div class="producto-resumen-texto"><p>${carritoGuardado[i].nombre}</p>
+            <p>Total: $${carritoGuardado[i].precio}</p>
+            <p>Cantidad: ${carritoGuardado[i].cantidad}</p></div>
+            <img src="../img/productos/${carritoGuardado[i].img}" alt="${carritoGuardado[i].nombre}"></div>`
         );
     };
     let resultadoHTML = carritoDeCompra.join(" ");
@@ -122,7 +123,7 @@ function agregarProducto (producto) {
 const reiniciarBoton = document.getElementById('reiniciar');
 reiniciarBoton.addEventListener('click',reiniciar);
 function reiniciar () {
-    console.log('hola');
+    localStorage.removeItem('carrito');
     location.reload(true);
 };
 
