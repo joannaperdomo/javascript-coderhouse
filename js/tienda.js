@@ -94,7 +94,6 @@ function desaparecerResumenCompra(){
     resumenCompra.style.visibility = 'hidden';
 }
 
-
 // Procesar compra
 
 function agregarProducto (producto) {
@@ -113,6 +112,9 @@ function agregarProducto (producto) {
         }
         carritoDelUsuario.push(productoTotal);
     }
+    // guardar en local storage
+    const carritoEnJson = JSON.stringify(carritoDelUsuario);
+    localStorage.setItem("carrito", carritoEnJson);
 };
 
 // reiniciar 
