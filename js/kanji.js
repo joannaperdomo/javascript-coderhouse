@@ -146,7 +146,10 @@ function mostrarResultados(){
     quizContenedor.innerHTML = `Has acertado ${respuestasAcertadas.length} de 10.`;
 };
 
+// Reiniciar examen
+
 reiniciarBoton.addEventListener('click',reiniciar);
 function reiniciar () {
     location.reload(true);
-} 
+};
+

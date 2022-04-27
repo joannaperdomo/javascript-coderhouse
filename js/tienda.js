@@ -48,9 +48,14 @@ function encontrarProducto (e) {
     // Encontrar la data del producto seleccionado
     let productoSeleccionado = productos.find((el) => el.codigo === e.target.name)
     // Guardar producto en el carrito del usuario
-    carritoDelUsuario.push(productoSeleccionado);
-    // Guardar producto en localStorage
-    numeroCarrito.innerText = `${carritoDelUsuario.length}`;
+    agregarProducto(productoSeleccionado);
+    // calcular cantidad de artículos
+    let numeroDeProductos = 0;
+    for (let i = 0; i <carritoDelUsuario.length;i++){
+        numeroDeProductos = numeroDeProductos + carritoDelUsuario[i].cantidad;
+    }
+    // Actualizar número del carrito
+    numeroCarrito.innerText = `${numeroDeProductos}`;
 
 }
 
@@ -72,7 +77,8 @@ function aparecerResumenCompra (){
         carritoDeCompra.push(
            `<div class="producto-resumen">
            <div class="producto-resumen-texto"><p>${carritoDelUsuario[i].nombre}</p>
-            <p>$${carritoDelUsuario[i].precio}</p></div>
+            <p>Total: $${carritoDelUsuario[i].precio}</p>
+            <p>Cantidad: ${carritoDelUsuario[i].cantidad}</p></div>
             <img src="../img/productos/${carritoDelUsuario[i].img}" alt="${carritoDelUsuario[i].nombre}"></div>`
         );
     };
@@ -88,6 +94,27 @@ function desaparecerResumenCompra(){
     resumenCompra.style.visibility = 'hidden';
 }
 
+
+// Procesar compra
+
+function agregarProducto (producto) {
+    const comprobarSiExiste = (element) => element.nombre === producto.nombre;
+    if (carritoDelUsuario.some(comprobarSiExiste)){
+        let productoEnElCarrito = carritoDelUsuario.find((el) => el.nombre === producto.nombre);
+        productoEnElCarrito.precio = productoEnElCarrito.precio + producto.precio;
+        productoEnElCarrito.cantidad++;
+
+    } else {
+        let productoTotal = {
+            nombre: producto.nombre,
+            cantidad: 1,
+            precio: producto.precio,
+            img: producto.img
+        }
+        carritoDelUsuario.push(productoTotal);
+    }
+};
+
 // reiniciar 
 
 const reiniciarBoton = document.getElementById('reiniciar');
@@ -95,4 +122,5 @@ reiniciarBoton.addEventListener('click',reiniciar);
 function reiniciar () {
     console.log('hola');
     location.reload(true);
-} 
+};
+
