@@ -9,17 +9,17 @@ const kanjiRandomnizer = async () => {
     const resp = await fetch('https://kanjiapi.dev/v1/kanji/grade-1');
     const listaDeKanjis = await resp.json();
     let randomkanji = listaDeKanjis[Math.floor(Math.random() * listaDeKanjis.length)];
-    console.log(randomkanji);
     return randomkanji;
  }
 
- // Conseguir opciones de otras respuestas para el examen
+// Conseguir opciones de otras respuestas para el examen
 const getRandomOption = async (kanji) => {
     const resp = await fetch(`https://kanjiapi.dev/v1/kanji/${kanji}`);
     const json = await resp.json();
     return json.kun_readings[0];
 }
 
+// COnseguir pregunta aleatoria
 const getKanji = async () => {
     // Obtener kanji aleatorio de la lista
     let kanjiAleatorio = await kanjiRandomnizer();
@@ -34,10 +34,12 @@ const getKanji = async () => {
     // Empujar kanji a la lista de los kanjis ya mostrados durante el test
     kanjisMostradosEnElExamen.push(objetoKanji);
     // Generar opciones
-    crearQuiz(objetoKanji);
+    crearQuiz(objetoKanji)
+    ;
 };
 
-async function crearQuiz (obj) {
+// Generar array con respuesta correcta + tres opciones random
+async function generarOpciones(obj){
     // Añadir kanji al quiz contenedor
     const opciones = [
         obj.respuesta,
@@ -45,6 +47,14 @@ async function crearQuiz (obj) {
         await getRandomOption(await kanjiRandomnizer()),
         await getRandomOption(await kanjiRandomnizer()),
     ];
+    // Cambiar de orden las respuestas
+    const shuffledOpciones = opciones.sort(() => Math.random() - 0.5)
+    return shuffledOpciones;
+}
+
+// Mostrar el quiz 
+async function crearQuiz (obj) {
+    const opciones = await generarOpciones(obj);
     const radioButtons = [];
     for(let i = 0; i < opciones.length; i++){
         radioButtons.push(
