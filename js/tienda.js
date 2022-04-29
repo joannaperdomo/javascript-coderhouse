@@ -32,13 +32,27 @@ for (let i = 0; i < productos.length; i++){
     containerProductos.append(producto);  
 };
 
-// Carrito del usuario
+// Elementos del DOM
 let carritoDelUsuario = [];
 const numeroCarrito = document.getElementById('numero-carrito');
-
-// Get elements del DOM
 let botonDeAñadirAlCarrito = document.querySelectorAll(".añadir-al-carrito-btn");
 
+// Revisar en local storage si ya hay productos en el carrito
+window.addEventListener('load', function(){
+    let carritoGuardado = JSON.parse(localStorage.getItem("carrito"));
+    if (carritoGuardado != null){
+        carritoDelUsuario = carritoGuardado;
+        numeroCarrito.classList.add('numero-carrito');
+        let numeroDeProductos = 0;
+        for (let i = 0; i <carritoDelUsuario.length;i++){
+            numeroDeProductos = numeroDeProductos + carritoDelUsuario[i].cantidad;
+        }
+        // Actualizar número del carrito
+        numeroCarrito.innerText = `${numeroDeProductos}`;
+    }
+})
+
+// Loop para agregar event listeners a los botones de cada producto
 for (const e of botonDeAñadirAlCarrito){
     e.addEventListener('click',encontrarProducto);
 }
@@ -59,14 +73,14 @@ function encontrarProducto (e) {
 
 }
 
-// Carrito
+// Carrito del usuario
 const carrito = document.getElementById('carrito');
 const resumenCompra = document.getElementById('resumen-compra');
 
+// Aparecer resumen de compra cuando el usuario da clic en la cesta
 function revisarCarrito(){
     resumenCompra.style.visibility == 'visible'? desaparecerResumenCompra() : aparecerResumenCompra();
 }
-
 
 carrito.addEventListener('click', revisarCarrito);
     
@@ -118,12 +132,13 @@ function agregarProducto (producto) {
     localStorage.setItem("carrito", carritoEnJson);
 };
 
-// reiniciar 
+// reiniciar carrito
 
 const reiniciarBoton = document.getElementById('reiniciar');
 reiniciarBoton.addEventListener('click',reiniciar);
 function reiniciar () {
     localStorage.removeItem('carrito');
     location.reload(true);
+    numeroCarrito.className = '';
 };
 

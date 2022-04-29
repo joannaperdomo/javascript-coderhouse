@@ -379,7 +379,7 @@ Rojo: #721121
     color: white;
     width: 20%;
     padding: 10px;
-    margin-right: 10px;
+    margin-right: 5%;
     gap: 10px;
     position: absolute;
     right: 0;
@@ -389,20 +389,34 @@ Rojo: #721121
 
 .producto-resumen{
     width: 90%;
+    margin: auto;
     border-radius: 15px;
     padding: 10px;
     margin-bottom: 10px;
     background-color: #D9B582;
     border-radius: 15px;
-    font-size: small;
+    font-size: xx-small;
     display: flex;
     justify-content: space-around;
 
 }
 
+.producto-resumen-texto{
+    line-height: 0px;
+}
+
 #resumen-compra img{
-    width: 50px;
-    height: auto;
+    width: 15%;
+    height: 15%;
+}
+
+#cuenta-final{
+    padding: 10px;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 5px;
+    background-color: #141430;
+    font-weight: bolder;
+    font-size: 1.5rem;
 }
 
 
