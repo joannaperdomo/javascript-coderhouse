@@ -87,7 +87,7 @@ function aparecerResumenCompra (){
     resumenCompra.innerHTML = `
     <h3>Tu carrito</h3>
     ${resultadoHTML}
-    <a name="comprar" href="procesarcompra.html" class="btn btn-dark comprar-btn">Comprar</a></div>`
+    <a name="comprar" href="procesarCompra.html" class="btn btn-dark comprar-btn">Comprar</a></div>`
     ;  
 };
 
