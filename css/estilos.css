@@ -410,6 +410,14 @@ Rojo: #721121
     height: 15%;
 }
 
+#listado-productos{
+    width: 50%;
+}
+
+.compra-final{
+   display: block; 
+}
+
 #cuenta-final{
     padding: 10px;
     border: 1px solid rgba(0,0,0,.125);
@@ -417,6 +425,7 @@ Rojo: #721121
     background-color: #141430;
     font-weight: bolder;
     font-size: 1.5rem;
+    width: 50%;
 }
 
 
