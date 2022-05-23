@@ -461,12 +461,26 @@ Rojo: #721121
 /* TABLETS AND SMALL SCREENS */
 
 @media  only screen and (max-width:768px) {
+
+    .texto-introductorio{
+        width: 300px;
+    }
     .logo{
         width: 40px;
+        margin-top: 80px;
     }
 
     #fondoRojo{
         width: auto;
+    }
+
+    #seccion-inscripcion{
+    }
+
+    #inscripcion-exitosa{
+        font-size: 14px;
+        margin: auto;
+        width: 80%;
     }
 
     .nivel{
@@ -486,10 +500,6 @@ Rojo: #721121
         width: 90%;
     }
 
-    .sidebar-seccion{
-        height: 100%;
-    }
-
     #nivelacion-contenedor{
         height: 100%;
         padding: 0px;
@@ -504,4 +514,9 @@ Rojo: #721121
     .producto{
         width: 80%;
     }
+
+    .form{
+        width: 80%;
+    }
+
 }
