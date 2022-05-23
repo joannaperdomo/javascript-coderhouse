@@ -47,6 +47,13 @@ Rojo: #721121
     padding-left: 100px;
 }
 
+.texto-introductorio{
+    color: white;
+    width: 30%;
+    margin-left: 100px;
+    text-shadow: 1px 1px gray;
+}
+
 .section{
     background-color: #dfc298;
 }
@@ -168,7 +175,28 @@ Rojo: #721121
     color: #E6E6E6;
     transform: rotate(90deg);
     position: fixed;
-    margin-top: 30vh;
+    margin-top: 40vh;
+    display: flex;
+    gap: 10px;
+}
+
+.icono{
+    width: 30px;
+    filter: invert(100%);
+    transform: rotate(270deg);
+    margin-right: 10px;
+}
+
+@keyframes iconos {
+    to {
+        transform: rotate(270deg) scale(1.3);
+    }
+}
+
+.icono:hover{
+    animation: iconos;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
 }
 
 /* FORMULARIO DE INSCRIPCIÓN */
